@@ -328,6 +328,19 @@ header .subtitle { animation-delay: 1.2s; }
   margin-top: 5px;
   letter-spacing: 2px;
 }
+  /* === TEXTO "Día de la boda" — FUERA DEL RECUADRO === */
+.wedding-day-title {
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b4a2b;
+  text-align: center;
+  letter-spacing: 3px;
+  margin-top: 10px;    /* pequeño espacio debajo del recuadro */
+  margin-bottom: 25px; /* antes del contador */
+  text-transform: uppercase;
+}
+
 
 
 
@@ -942,8 +955,8 @@ html {
       <h2>Únete a nosotros el</h2>
        <div class="date-box">
   <span>17 · 10 · 2026</span>
-  <small>Día de la boda</small>
 </div>
+      <h3 class="wedding-day-title">Día de la boda</h3>
       <div id="countdown">
         <div class="time-box"><span id="days">0</span><small>Días</small></div>
         <div class="time-box"><span id="hours">0</span><small>Horas</small></div>
@@ -1388,6 +1401,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
