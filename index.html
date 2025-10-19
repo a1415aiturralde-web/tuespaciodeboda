@@ -71,13 +71,14 @@ header {
 }
 
 /* === Ajustes específicos para pantallas pequeñas === */
+/* === Ajustes específicos para pantallas pequeñas === */
 @media (max-width: 600px) {
   header {
-    padding: 25px 15px; /* reduce un poco los márgenes interiores */
+    padding: 25px 15px;
     border-radius: 20px;
-    max-width: 90%; /* deja margen lateral para que se vea el borde */
+    max-width: 90%;
   }
-
+} /* ✅ ← cierre que faltaba */
 
 /* === EFECTO DIBUJADO DEL BORDE === */
 @keyframes drawBorder {
@@ -90,9 +91,11 @@ header {
     box-shadow: 0 0 0 rgba(0,0,0,0);
   }
   100% {
-    border-color: #6b4a2b; /* mismo tono que el texto */
+    border-color: #6b4a2b;
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   }
+}
+
 
 /* === FADE-IN DEL CONTENIDO INTERIOR === */
 header .title,
@@ -1214,6 +1217,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
