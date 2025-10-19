@@ -57,18 +57,13 @@
 
 header {
   text-align: center;
-  padding: 30px 20px; /* más equilibrado en móviles */
-  animation: fadeUp 2s ease-in-out, drawBorder 2.5s ease forwards;
-  border: 2px solid transparent;
-  border-radius: 25px;
-  max-width: 95%; /* 🔹 se adapta mejor al ancho de pantalla */
-  margin: 40px auto;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box; /* asegura que el borde cuenta dentro del ancho */
+  padding: 20px;
+  border: none; /* quitamos el borde decorativo */
+  background: transparent; /* sin fondo */
+  box-shadow: none; /* sin sombra */
+  margin: 20px auto 10px;
 }
+
 
 /* === Ajustes específicos para pantallas pequeñas === */
 @media (max-width: 600px) {
@@ -1070,6 +1065,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
