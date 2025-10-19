@@ -168,7 +168,7 @@ header .subtitle { animation-delay: 1.2s; }
   max-width: 900px;
   margin: 40px auto;
   background: 
-    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.25)),
     url("mi_foto_boda_v37.png"); /* 🔹 tu imagen decorativa */
   background-size: cover;       /* se adapta al recuadro */
   background-position: center;  /* centrada */
@@ -795,12 +795,111 @@ label {
 .modal-content a:hover {
   text-decoration: underline;
 }
+  /* === BOTÓN HAMBURGUESA === */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  font-size: 26px;
+  color: #6b4a2b;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #6b4a2b;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 1100;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.menu-toggle:hover {
+  background: #f8f1e3;
+  transform: scale(1.05);
+}
+
+/* === MENÚ DESPLEGABLE === */
+.menu-dropdown {
+  position: fixed;
+  top: 65px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #6b4a2b;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  padding: 10px 0;
+  width: 180px;
+  display: none;
+  flex-direction: column;
+  z-index: 1099;
+  animation: fadeDown 0.3s ease;
+}
+
+.menu-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-dropdown li {
+  text-align: center;
+  border-bottom: 1px solid rgba(107, 74, 43, 0.2);
+}
+
+.menu-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: 10px;
+  color: #6b4a2b;
+  font-family: 'Cinzel', serif;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-dropdown a:hover {
+  background: #f8f1e3;
+  color: #a00034;
+}
+
+/* Animación sutil */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Efecto “mostrar” */
+.menu-dropdown.show {
+  display: flex;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
 
 
   </style>
 </head>
 
 <body>
+  <!-- === BOTÓN HAMBURGUESA === -->
+<div class="menu-toggle" id="menuToggle">
+  ☰
+</div>
+
+<!-- === MENÚ DESPLEGABLE === -->
+<nav class="menu-dropdown" id="menuDropdown">
+  <ul>
+    <li><a href="#ubicacion">Ubicación</a></li>
+    <li><a href="#asistencia">Asistencia</a></li>
+    <li><a href="#traslado">Traslado</a></li>
+    <li><a href="#recuerdos">Recuerdos</a></li>
+  </ul>
+</nav>
+
 
   <!-- 💫 CONTENEDOR PRINCIPAL -->
   <div id="page-wrapper">
@@ -836,6 +935,11 @@ label {
     <div class="boda-foto">
       <img src="mi_foto_boda_v39.JPG" alt="Foto de compromiso Alejandro y Andrea">
     </div>
+    <span id="ubicacion"></span>
+<span id="asistencia"></span>
+<span id="traslado"></span>
+<span id="recuerdos"></span>
+
         <!-- Accesos -->
     <div class="icon-container">
       <button class="icon-button" id="ubicacionBtn">
@@ -1210,6 +1314,7 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.disabled = false;
       spinner.remove();
     });
+     
 
     /* Mostrar cuántos archivos se seleccionaron */
     fileInput.addEventListener("change", () => {
@@ -1220,8 +1325,32 @@ document.addEventListener("DOMContentLoaded", () => {
         recuerdosMsg.textContent = `📷 ${fileInput.files.length} archivos seleccionados`;
     });
   }
-});
+ /* === MENÚ HAMBURGUESA === */
+  const menuToggle = document.getElementById("menuToggle");
+  const menuDropdown = document.getElementById("menuDropdown");
+
+  if (menuToggle && menuDropdown) {
+    menuToggle.addEventListener("click", () => {
+      menuDropdown.classList.toggle("show");
+    });
+
+    // Oculta el menú al hacer clic en un enlace
+    menuDropdown.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        menuDropdown.classList.remove("show");
+      });
+    });
+
+    // Cierra si se hace clic fuera
+    document.addEventListener("click", (e) => {
+      if (!menuDropdown.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuDropdown.classList.remove("show");
+      }
+    });
+  }
+
 </script>
+
 
 
 
