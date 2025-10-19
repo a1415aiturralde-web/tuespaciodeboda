@@ -56,10 +56,18 @@
     }
 
 header {
-  border: 3px solid #6b4a2b;
-  border-radius: 20px;
-  padding: 30px;
-  clip-path: path("M10,10 Q50,0 100,10 T190,10 V190 Q150,200 100,190 T10,190 Z");
+  text-align: center;
+  padding: 25px 30px;
+  animation: fadeUp 2s ease-in-out, drawBorder 2.5s ease forwards;
+  border: 2px solid #6b4a2b; /* mismo color que el texto */
+  border-radius: 25px;
+  max-width: 500px; /* tamaño más ajustado al título */
+  margin: 40px auto 20px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 
@@ -1087,6 +1095,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
