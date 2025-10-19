@@ -1165,8 +1165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const openBtn = document.getElementById(openBtnId);
     const modal = document.getElementById(modalId);
     const closeBtn = document.getElementById(closeBtnId);
-
-    if (!openBtn || !modal || !closeBtn) return; // Evita errores si falta algo
+    if (!openBtn || !modal || !closeBtn) return;
 
     openBtn.addEventListener("click", () => {
       modal.classList.add("show");
@@ -1175,8 +1174,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     closeBtn.addEventListener("click", closeAllModals);
-    modal.addEventListener("click", (e) => { if (e.target === modal) closeAllModals(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAllModals(); });
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeAllModals();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeAllModals();
+    });
   }
 
   /* === CONFIGURAR TODOS === */
@@ -1187,29 +1190,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("popstate", closeAllModals);
 
- /* === CUENTA ATRÁS === */
+  /* === CUENTA ATRÁS === */
   const weddingDate = new Date("Oct 17, 2026 12:00:00").getTime();
   const daysEl = document.getElementById("days");
   const hoursEl = document.getElementById("hours");
   const minutesEl = document.getElementById("minutes");
   const secondsEl = document.getElementById("seconds");
 
-  setInterval(() => {
+  function updateCountdown() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
     if (distance <= 0) {
-      document.getElementById("countdown").innerHTML = "💍 ¡Hoy es el gran día!";
+      const countdown = document.getElementById("countdown");
+      if (countdown) countdown.innerHTML = "💍 ¡Hoy es el gran día!";
       return;
     }
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
     if (daysEl) daysEl.textContent = days;
     if (hoursEl) hoursEl.textContent = hours;
     if (minutesEl) minutesEl.textContent = minutes;
     if (secondsEl) secondsEl.textContent = seconds;
-  }, 1000);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
   /* === FORMULARIO ASISTENCIA === */
   const form = document.getElementById("rsvpForm");
@@ -1274,7 +1282,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const recuerdosMsg = document.getElementById("recuerdosMsg");
   const fileInput = document.getElementById("foto");
 
-  if (recuerdosForm) {
+  if (recuerdosForm && fileInput && recuerdosMsg) {
     recuerdosForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       recuerdosMsg.innerHTML = "";
@@ -1321,7 +1329,6 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.disabled = false;
       spinner.remove();
     });
-     
 
     /* Mostrar cuántos archivos se seleccionaron */
     fileInput.addEventListener("change", () => {
@@ -1332,12 +1339,14 @@ document.addEventListener("DOMContentLoaded", () => {
         recuerdosMsg.textContent = `📷 ${fileInput.files.length} archivos seleccionados`;
     });
   }
- /* === MENÚ HAMBURGUESA === */
+
+  /* === MENÚ HAMBURGUESA === */
   const menuToggle = document.getElementById("menuToggle");
   const menuDropdown = document.getElementById("menuDropdown");
 
   if (menuToggle && menuDropdown) {
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation(); // ✅ evita que se cierre al instante
       menuDropdown.classList.toggle("show");
     });
 
@@ -1355,8 +1364,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
+});
 </script>
+
 
 
 
