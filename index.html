@@ -111,7 +111,6 @@ header .subtitle { animation-delay: 1.2s; }
   font-family: 'Cinzel', serif; /* tipografía elegante como la imagen */
   font-size: 40px;
   letter-spacing: 3px; /* separación entre letras */
-  text-transform: uppercase; /* todo en mayúsculas */
   color: #6b4a2b; /* tono marrón dorado suave */
   font-weight: 700;
   margin-bottom: 10px;
@@ -658,6 +657,13 @@ label {
   line-height: 1.6;
   font-weight: 700; /* en negrita */
 }
+    .subtitle,
+#trasladoModal p,
+#recuerdosModal p,
+#ubicacionModal p {
+  text-transform: none !important;
+}
+
 
   </style>
 </head>
@@ -1061,6 +1067,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
