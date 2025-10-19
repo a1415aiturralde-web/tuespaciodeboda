@@ -31,16 +31,13 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-   body {
- background:
-  radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.35) 0%, transparent 60%),
-  radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.25) 0%, transparent 60%),
-  radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.3) 0%, transparent 70%),
-  radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.25) 0%, transparent 70%),
-  linear-gradient(to bottom right, #e8d3b8, #d8b793, #c8a67a);
-background-attachment: fixed;
-background-size: cover;
-
+body {
+      background: radial-gradient(circle at top center, #f9f4e8 0%, #f8f1e3 40%, #f6ebd8 100%);
+      font-family: 'Lora', serif;
+      color: var(--ink);
+      overflow-x: hidden;
+      animation: fadeIn 4s ease-in-out;
+    }
 
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(30px); }
@@ -73,10 +70,6 @@ header {
   box-sizing: border-box;
 }
 
-
-
-
-
 /* === Ajustes específicos para pantallas pequeñas === */
 @media (max-width: 600px) {
   header {
@@ -100,7 +93,6 @@ header {
     border-color: #6b4a2b; /* mismo tono que el texto */
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   }
-}
 
 /* === FADE-IN DEL CONTENIDO INTERIOR === */
 header .title,
@@ -1222,6 +1214,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
