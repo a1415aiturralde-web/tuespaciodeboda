@@ -795,19 +795,19 @@ label {
 .modal-content a:hover {
   text-decoration: underline;
 }
-  /* === BOTÓN HAMBURGUESA === */
+ /* === BOTÓN HAMBURGUESA === */
 .menu-toggle {
   position: fixed;
   top: 20px;
   right: 25px;
   font-size: 26px;
   color: #6b4a2b;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border: 2px solid #6b4a2b;
   border-radius: 10px;
   padding: 8px 12px;
   cursor: pointer;
-  z-index: 1100;
+  z-index: 5000; /* ⬆️ asegura que esté por encima de todo */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: background 0.3s ease, transform 0.2s ease;
 }
@@ -822,7 +822,7 @@ label {
   position: fixed;
   top: 65px;
   right: 25px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.97);
   border: 2px solid #6b4a2b;
   border-radius: 10px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
@@ -830,8 +830,20 @@ label {
   width: 180px;
   display: none;
   flex-direction: column;
-  z-index: 1099;
-  animation: fadeDown 0.3s ease;
+  z-index: 4999; /* ⬆️ justo debajo del botón */
+  animation: slideDown 0.3s ease forwards;
+}
+
+/* Animación de deslizamiento elegante */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .menu-dropdown ul {
@@ -863,15 +875,10 @@ label {
   color: #a00034;
 }
 
-/* Animación sutil */
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* Efecto “mostrar” */
 .menu-dropdown.show {
   display: flex;
+  animation: slideDown 0.3s ease forwards;
 }
 
 /* Scroll suave */
@@ -1350,6 +1357,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 </script>
+
 
 
 
