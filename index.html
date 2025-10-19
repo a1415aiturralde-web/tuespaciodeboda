@@ -277,7 +277,7 @@ header .subtitle { animation-delay: 1.2s; }
   justify-content: center;
   margin: 50px auto;
   padding: 30px 50px;
-  background: #f8f1e3; /* fondo crema */
+  background: none;
   border-radius: 20px;
   border: 1px solid rgba(107, 74, 43, 0.3);
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
@@ -807,7 +807,11 @@ label {
 
     <!-- Cuenta atrás -->
     <section class="countdown-section">
-      <h2>Unete a nosotros</h2>
+      <h2>Únete a nosotros el</h2>
+       <div class="date-box">
+  <span>17 · 10 · 2026</span>
+  <small>Día de la boda</small>
+</div>
       <div id="countdown">
         <div class="time-box"><span id="days">0</span><small>Días</small></div>
         <div class="time-box"><span id="hours">0</span><small>Horas</small></div>
@@ -815,11 +819,6 @@ label {
         <div class="time-box"><span id="seconds">0</span><small>Seg</small></div>
       </div>
     </section>
-
-    <div class="date-box">
-  <span>17 · 10 · 2026</span>
-  <small>Día de la boda</small>
-</div>
 
     <!-- Accesos -->
     <div class="icon-container">
@@ -1220,6 +1219,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
