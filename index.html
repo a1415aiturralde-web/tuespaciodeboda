@@ -129,7 +129,7 @@ header .subtitle { animation-delay: 1.2s; }
   font-weight: 700;
   position: relative;
   display: inline-block;
-  padding: 10px 30px;
+  padding: 10px 60px; /* 🔹 más espacio a los lados */
 }
 
 .title::before,
@@ -144,11 +144,11 @@ header .subtitle { animation-delay: 1.2s; }
 }
 
 .title::before {
-  left: -25px;
+  left: 15px; /* 🔹 antes -25px */
 }
 
 .title::after {
-  right: -25px;
+  right: 15px; /* 🔹 antes -25px */
 }
 
 
@@ -1220,6 +1220,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
