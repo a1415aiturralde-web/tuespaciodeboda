@@ -121,39 +121,36 @@ header .subtitle { animation-delay: 1.2s; }
       to { opacity: 1; transform: translateY(0); }
     }
 
- .title {
+.title {
   font-family: 'Cinzel', serif;
   font-size: 36px;
-  font-weight: 700;
+  letter-spacing: 3px;
   color: #6b4a2b;
+  font-weight: 700;
   position: relative;
   display: inline-block;
-  letter-spacing: 4px;
+  padding: 10px 30px;
 }
 
 .title::before,
 .title::after {
-  content: "";
+  content: "❦"; /* símbolo decorativo */
   position: absolute;
   top: 50%;
-  width: 60px;
-  height: 2px;
-  background-color: #6b4a2b;
   transform: translateY(-50%);
+  font-size: 26px;
+  color: #a46a3a;
+  opacity: 0.7;
 }
 
-.title::before { left: -80px; }
-.title::after { right: -80px; }
+.title::before {
+  left: -25px;
+}
 
 .title::after {
-  content: "♥";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-  color: #a00034;
+  right: -25px;
 }
+
 
 
 
@@ -1223,6 +1220,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
