@@ -55,19 +55,29 @@
       user-select: none;
     }
 
-  header {
+header {
   text-align: center;
-  padding: 40px 30px;
+  padding: 30px 20px; /* más equilibrado en móviles */
   animation: fadeUp 2s ease-in-out, drawBorder 2.5s ease forwards;
-  border: 2px solid transparent; /* empieza sin color */
+  border: 2px solid transparent;
   border-radius: 25px;
-  max-width: 900px;
+  max-width: 95%; /* 🔹 se adapta mejor al ancho de pantalla */
   margin: 40px auto;
   background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box; /* asegura que el borde cuenta dentro del ancho */
 }
+
+/* === Ajustes específicos para pantallas pequeñas === */
+@media (max-width: 600px) {
+  header {
+    padding: 25px 15px; /* reduce un poco los márgenes interiores */
+    border-radius: 20px;
+    max-width: 90%; /* deja margen lateral para que se vea el borde */
+  }
+
 
 /* === EFECTO DIBUJADO DEL BORDE === */
 @keyframes drawBorder {
@@ -1060,6 +1070,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
