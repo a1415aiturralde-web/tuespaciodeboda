@@ -58,16 +58,12 @@ body {
 header {
   text-align: center;
   padding: 25px 30px;
-  animation: fadeUp 2s ease-in-out, drawBorder 2.5s ease forwards;
-  border: 2px solid #000; /* mismo color que el texto */
-  border-radius: 25px;
-  max-width: 500px; /* tamaño más ajustado al título */
-  margin: 40px auto 20px;
-  background: #fdfcfb;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
+  background: none;         /* 🔹 sin fondo */
+  border: none;             /* 🔹 sin borde */
+  box-shadow: none;         /* 🔹 sin sombra */
+  max-width: 500px;
+  margin: 60px auto 10px;
+  animation: fadeUp 2s ease-in-out;
 }
 
 /* === Ajustes específicos para pantallas pequeñas === */
@@ -125,9 +121,9 @@ header .subtitle { animation-delay: 1.2s; }
   letter-spacing: 3px;
   color: #6b4a2b;
   font-weight: 700;
-  position: relative;
   display: inline-block;
-  padding: 10px 60px; /* 🔹 más espacio a los lados */
+  position: relative;
+  padding-bottom: 10px;
 }
 
 .title::before,
@@ -142,13 +138,30 @@ header .subtitle { animation-delay: 1.2s; }
 }
 
 .title::before {
-  left: 15px; /* 🔹 antes -25px */
+  left: -30px;
 }
-
 .title::after {
-  right: 15px; /* 🔹 antes -25px */
+  right: -30px;
+}
+    title::after,
+.title::before {
+  font-size: 24px;
 }
 
+/* línea decorativa independiente debajo del título */
+.title::after,
+.title::before {
+  /* mantenemos los símbolos ❦ arriba */
+}
+
+.title-line {
+  width: 80%;                /* ligeramente más corto que el texto */
+  max-width: 250px;          /* se adapta a pantallas pequeñas */
+  height: 2px;
+  background-color: #6b4a2b; /* mismo tono que el texto */
+  margin: 12px auto 0;       /* espacio justo debajo del título */
+  border-radius: 2px;
+}
 
 
 
@@ -911,9 +924,10 @@ html {
   <!-- 💫 CONTENEDOR PRINCIPAL -->
   <div id="page-wrapper">
 
-    <header>
-      <h1 class="title">Alejandro & Andrea</h1>
-    </header>
+  <header>
+  <h1 class="title">Alejandro & Andrea</h1>
+  <div class="title-line"></div>
+</header>
 
     <!-- Cuenta atrás -->
     <section class="countdown-section">
@@ -1366,6 +1380,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
