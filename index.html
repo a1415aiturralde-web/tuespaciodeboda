@@ -276,21 +276,39 @@
 
     .modal.show { opacity: 1; visibility: visible; }
 
-    .modal-content {
-      background: rgba(248,229,216,0.97);
-      border-radius: 16px;
-      padding: 30px 25px;
-      max-width: 600px;
-      width: 90%;
-      color: #000;
-      border: 2px solid #000;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      transform: scale(0.9);
-      opacity: 0;
-      transition: all 0.4s ease;
-      position: relative;
-      z-index: 1001;
-    }
+   .modal-content {
+  background: rgba(248,229,216,0.97);
+  border-radius: 16px;
+  padding: 30px 25px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh; /* 🔹 altura máxima = 85% de la ventana */
+  overflow-y: auto; /* 🔹 permite scroll vertical dentro del modal */
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1001;
+  scrollbar-width: thin; /* 🔹 hace la barra más fina (en Firefox) */
+  scrollbar-color: #a00034 #f8f1e3; /* 🔹 color personalizado */
+}
+
+/* 🔹 Scrollbar elegante para navegadores WebKit (Chrome, Safari, Edge) */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-content::-webkit-scrollbar-track {
+  background: #f8f1e3;
+  border-radius: 10px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #a00034;
+  border-radius: 10px;
+}
+
 
     .modal.show .modal-content { transform: scale(1); opacity: 1; }
 
@@ -1002,6 +1020,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
