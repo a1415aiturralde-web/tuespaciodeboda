@@ -527,9 +527,12 @@ label {
     /* === RINCÓN DE LOS RECUERDOS: mejora de estilo === */
 
 /* Texto de información: en negrita y centrado */
+/* === RINCÓN DE LOS RECUERDOS — versión refinada === */
+
+/* Texto de información */
 #recuerdosModal .recuerdos-content p {
   text-align: center;
-  font-weight: 700; /* 👈 negrita */
+  font-weight: 700; /* negrita */
   font-family: 'Lora', serif;
   font-size: 17px;
   line-height: 1.6;
@@ -537,40 +540,62 @@ label {
   margin-bottom: 18px;
 }
 
-/* Contenedor del input de archivos */
+/* Formulario centrado */
 #recuerdosForm {
   text-align: center;
 }
 
-/* Ocultamos el input nativo */
+/* Ocultamos el input original */
 #recuerdosForm input[type="file"] {
   display: none;
 }
 
-/* Botón personalizado para seleccionar archivos */
+/* Botón personalizado “Seleccionar fotos” */
 .file-label {
   display: inline-block;
-  padding: 12px 22px;
+  padding: 10px 18px;
   border-radius: 999px;
-  background: #a00034; /* granate elegante */
-  color: #fff;
+  border: 2px solid #a00034; /* granate fino */
+  background: transparent;   /* sin fondo */
+  color: #a00034;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
 .file-label:hover {
-  filter: brightness(0.9);
+  background: #a00034;
+  color: #fff;
   transform: translateY(-2px);
 }
 
-/* Texto debajo del botón */
+/* Mensaje debajo */
 #recuerdosMsg {
   margin-top: 12px;
   font-weight: 600;
   color: #000;
+}
+
+/* === Botón ENVIAR igual al de Asistencia === */
+#recuerdosForm button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #a00034;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+#recuerdosForm button:hover {
+  filter: brightness(0.9);
+  transform: translateY(-2px);
 }
 
 
@@ -977,6 +1002,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
