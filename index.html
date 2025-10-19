@@ -171,16 +171,12 @@ header .subtitle { animation-delay: 1.2s; }
   margin-bottom: 20px;
 }
 
-
-/* === CONTADOR ELEGANTE === */
-/* === Puntos separadores elegantes entre bloques === */
-/* === CONTADOR ELEGANTE — ESTILO ALINEADO CON PUNTOS === */
 #countdown {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 60px; /* separación entre cada grupo */
-  margin-top: 20px;
+  gap: 50px; /* separación entre cada grupo */
+  margin-top: 15px;
   position: relative;
 }
 
@@ -194,43 +190,62 @@ header .subtitle { animation-delay: 1.2s; }
   text-align: center;
 }
 
-/* números grandes */
+/* números equilibrados */
 .time-box span {
-  font-size: 46px;
+  font-size: 36px; /* 🔹 antes 46px */
   font-weight: 700;
   line-height: 1.1;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* animación suave al cambiar */
+/* animación suave */
 .time-box span.change {
   opacity: 0.6;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-/* etiquetas pequeñas */
+/* etiquetas */
 .time-box small {
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   font-weight: 600;
   margin-top: 6px;
   color: #6b4a2b;
 }
 
-/* puntos separadores entre bloques */
+/* puntos separadores */
 .time-box:not(:last-child)::after {
   content: "·";
   position: absolute;
-  right: -35px;
+  right: -30px;
   top: 25%;
   transform: translateY(-50%);
-  font-size: 36px;
+  font-size: 28px; /* 🔹 más fino */
   color: #6b4a2b;
   font-weight: 400;
 }
 
+/* === VERSIÓN RESPONSIVE PARA MÓVILES === */
+@media (max-width: 600px) {
+  #countdown {
+    gap: 30px;
+  }
 
+  .time-box span {
+    font-size: 28px; /* 🔹 más pequeño para pantallas pequeñas */
+  }
+
+  .time-box small {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .time-box:not(:last-child)::after {
+    right: -18px;
+    font-size: 22px;
+    top: 22%;
+  }
 
 .date-box {
   display: flex;
@@ -1182,6 +1197,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
