@@ -524,6 +524,55 @@ label {
   opacity: 1;
   transform: scale(1) translateY(0); /* se agranda suavemente y baja al sitio */
 }
+    /* === RINCÓN DE LOS RECUERDOS: mejora de estilo === */
+
+/* Texto de información: en negrita y centrado */
+#recuerdosModal .recuerdos-content p {
+  text-align: center;
+  font-weight: 700; /* 👈 negrita */
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 18px;
+}
+
+/* Contenedor del input de archivos */
+#recuerdosForm {
+  text-align: center;
+}
+
+/* Ocultamos el input nativo */
+#recuerdosForm input[type="file"] {
+  display: none;
+}
+
+/* Botón personalizado para seleccionar archivos */
+.file-label {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #a00034; /* granate elegante */
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.file-label:hover {
+  filter: brightness(0.9);
+  transform: translateY(-2px);
+}
+
+/* Texto debajo del botón */
+#recuerdosMsg {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #000;
+}
+
 
   </style>
 </head>
@@ -730,10 +779,13 @@ label {
   Por eso, os invitamos a subir aquí todas las fotos espontáneas que hagáis con vuestro móvil:  
   esos instantes divertidos, naturales y únicos que solo vosotros podéis captar.  </p>
         </p>
-        <form id="recuerdosForm">
-          <input type="file" id="foto" name="foto" accept="image/*" multiple required><br><br>
-          <button type="submit" style="padding:10px 18px;border:0;border-radius:999px;background:#a00034;color:#fff;font-weight:600;font-size:15px;cursor:pointer;">Enviar fotos</button>
-        </form>
+     <form id="recuerdosForm">
+  <label for="foto" class="file-label">📸 Seleccionar fotos</label>
+  <input type="file" id="foto" name="foto" accept="image/*" multiple>
+  <div id="recuerdosMsg"></div>
+
+  <button type="submit">Enviar fotos</button>
+</form>
         <div id="recuerdosMsg" style="margin-top:10px;font-size:14px;"></div>
       </div>
     </div>
@@ -925,6 +977,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
