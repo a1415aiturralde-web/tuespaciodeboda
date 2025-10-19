@@ -3,1399 +3,616 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Boda de Alejandro & Andrea</title>
+  <title>Boda de Alejandro & Andrea</title>
 
-<!-- Descripción y metadatos -->
-<meta name="description" content="¡Bienvenidos a nuestro espacio de boda! Nos hace una enorme ilusión que nos acompañéis en este momento tan especial de nuestras vidas. Aquí podréis compartir con nosotros vuestras preferencias para que todo esté perfecto y también encontrar toda la información sobre la celebración. ¡Gracias de corazón por formar parte de nuestra historia! 💖">
-<meta name="theme-color" content="#b87b5a">
-<meta name="author" content="Alejandro & Andrea">
-<meta name="robots" content="index, follow">
+  <!-- Metadatos -->
+  <meta name="description" content="¡Bienvenidos a nuestro espacio de boda! Nos hace una enorme ilusión que nos acompañéis en este momento tan especial de nuestras vidas. Aquí podréis compartir con nosotros vuestras preferencias para que todo esté perfecto y también encontrar toda la información sobre la celebración. ¡Gracias de corazón por formar parte de nuestra historia! 💖">
+  <meta name="theme-color" content="#b87b5a">
+  <meta name="author" content="Alejandro & Andrea">
+  <meta name="robots" content="index, follow">
 
-<!-- Favicon / Iconos -->
-<link rel="icon" type="image/png" sizes="32x32" href="mi_foto_boda_v31.png">
-<link rel="icon" type="image/png" sizes="192x192" href="mi_foto_boda_v31.png">
-<link rel="apple-touch-icon" sizes="180x180" href="mi_foto_boda_v31.png">
-<link rel="shortcut icon" href="mi_foto_boda_v31.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="mi_foto_boda_v31.png">
 
-<!-- Tipografías -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-<!-- Vista previa en redes -->
-<meta property="og:title" content="Boda de Alejandro & Andrea">
-<meta property="og:description" content="¡Bienvenidos a nuestro espacio de boda! Nos hace una enorme ilusión que nos acompañéis en este momento tan especial de nuestras vidas. Aquí podréis compartir con nosotros vuestras preferencias para que todo esté perfecto y también encontrar toda la información sobre la celebración. ¡Gracias de corazón por formar parte de nuestra historia! 💖">
-<meta property="og:image" content="mi_foto_boda_v31.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.bodalejandroyandrea.com">
-
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --brand: #b87b5a;
-      --brand-2: #e8d8cc;
       --ink: #2b2b2b;
-      --muted: #6b6b6b;
-      --ok: #2f8f5b;
-      --error: #b33a3a;
-      --radius: 16px;
-      --cream: rgba(250,240,240,0.40);
+      --cream-bg: #f8f1e3;
+      --overlay: rgba(0, 0, 0, 0.35);
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; padding: 0; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background:
-        radial-gradient(60rem 60rem at 120% -10%, rgba(184,123,90,.12), transparent 60%),
-        radial-gradient(60rem 60rem at -20% 110%, rgba(184,123,90,.10), transparent 60%),
-        url('mi_foto_boda_v37.png') center/cover no-repeat;
-      background-attachment: scroll;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center top;
+      background: radial-gradient(circle at top center, #f9f4e8 0%, #f8f1e3 40%, #f6ebd8 100%);
+      font-family: 'Lora', serif;
+      color: var(--ink);
+      overflow-x: hidden;
+      animation: fadeIn 4s ease-in-out;
+      transition: filter 0.5s ease, background-color 0.5s ease;
     }
-     html, body { min-height: 100%; height: auto; }
 
-    .header {
+    body.modal-open {
+      filter: blur(8px) brightness(0.8);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
       text-align: center;
-      display: inline-block;
-      padding: 20px 24px 24px;
-      margin: 20px auto 24px;
-      border: 2px solid #000000;
-      border-radius: 16px;
-      background:rgba(250,240,240, 0.7);
+      padding: 40px 20px;
+      animation: fadeUp 4s ease-in-out;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .title {
       font-family: 'Great Vibes', cursive;
-      font-size: 55px!important;
-      font-weight: 700;
-      color: #a00034 !important;
-      margin: 0 0 12px 0;
+      font-size: 58px;
+      color: #a00034;
+      margin-bottom: 10px;
     }
 
     .subtitle {
       font-family: 'Bradley Hand ITC', cursive, sans-serif;
-      font-size: 24px!important;
-      line-height: 1.5;
-      margin: 0;
-      color: #808000 !important;
-      font-weight: 700;
+      font-size: 22px;
+      color: #5a4b2b;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    /* Icono de portada */
-#portada .icon-container {
-  display: flex;
-  justify-content: center;
-  margin: 60px auto 24px;
-  flex-wrap: wrap;
-  gap: 16px;
-  max-width: 720px;
-}
+    /* Cuenta atrás */
+    .countdown-section {
+      text-align: center;
+      margin: 40px auto;
+      animation: fadeUp 4s ease-in-out;
+    }
 
-/* Iconos de accesos */
-#accesos .icon-container {
-  display: flex;
-  justify-content: center;  /* centra en horizontal */
-  flex-wrap: wrap;          /* baja en móvil */
-  gap: 16px;
-  margin: 70px auto 24px;
-  max-width: 720px;
-}
+    .countdown-section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      color: #a00034;
+      margin-bottom: 15px;
+    }
 
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      background: rgba(255,255,255,0.7);
+      border: 2px solid #c9ab83;
+      border-radius: 16px;
+      padding: 15px 25px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .time-box span {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--brand);
+      display: block;
+    }
+
+    .time-box small {
+      font-size: 14px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Fecha */
+    .date-box {
+      text-align: center;
+      margin: 30px auto;
+      font-size: 38px;
+      font-family: 'Great Vibes', cursive;
+      color: #a00034;
+      border: 2px solid #a00034;
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeUp 4s ease-in-out;
+    }
+
+    /* Iconos */
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 50px auto;
+      max-width: 720px;
+      animation: fadeUp 4s ease-in-out;
+    }
 
     .icon-button {
       display: flex;
       flex-direction: column;
       align-items: center;
-      cursor: pointer;
-      background: rgba(250,240,240,1);
-      padding: 20px;
+      background: rgba(250,240,240,0.9);
+      padding: 16px;
       border-radius: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      border: 2px solid #000;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
       min-width: 100px;
-      border: 2px solid #000000; /* ⚫ borde negro */
     }
-   .icon-button span {
-  font-size: 16px;          /* un poco más grande */
-  text-align: center;
-  color: #000;
-  font-weight: 700;
-  text-transform: uppercase; /* fuerza MAYÚSCULAS */
-}
-    #accesos .icon-button span {
-  font-size: 12px; /* más pequeño solo dentro de accesos */
-}
-      
-      #accesos .icon-button {
-  padding: 12px;   /* reduce el tamaño del recuadro solo en accesos */
-}
-      
-
 
     .icon-button:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
     }
+
+    .icon-button span {
+      margin-top: 8px;
+      font-weight: bold;
+      color: #000;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
     .icon-img {
       width: 60px;
       height: auto;
-      margin-bottom: 8px;
     }
-    .icono-entrar {
-  width: 80px;  /* ajusta el tamaño solo para este icono */
-}
 
-
-    label {
-      display: inline-block;
-      font-size: 20px;
-      color: #000;
-      margin: 12px 0 6px;
-      font-weight: bold;
-      background: rgba(250,240,240,1);
-      padding: 2px 6px;
-      border-radius: 4px;
-      border: 2px solid #000000;
-    }
-    input, select, textarea {
+    /* Foto */
+    .boda-foto {
       width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      font-size: 15px;
-      background: rgba(250,240,240,1);
-      font-weight: bold;
-      color: #000;
-      border: 2px solid #000000;
-    }
-    textarea { min-height: 96px; resize: vertical; }
-    
-    #rsvpForm {
-  text-align: center;
-}
-
-
-    .radio-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border: 2px solid var(--brand);
-      border-radius: 999px;
-      cursor: pointer;
-      user-select: none;
-      font-weight: bold;
-      transition: all 0.2s ease-in-out;
-      color: var(--ink);
-      background: rgba(250,240,240,0.8);
-      font-size: 16px;
-      position: relative;
-    }
-    .chip input { position: absolute; opacity: 0; pointer-events: none; }
-    .chip span { display: inline-block; transition: all 0.2s ease-in-out; }
-    .chip input:checked + span {
-      background: var(--brand);
-      color: #fff;
-      border-color: var(--brand);
-      padding: 12px 22px;
-      transform: scale(1.05);
+      max-width: 900px;
+      margin: 50px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      animation: fadeUp 4s ease-in-out;
     }
 
-   .actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-/* Botón de Enviar confirmación (ahora granate, igual que el de Recuerdos) */
-button[type="submit"] {
-  padding: 12px 18px;
-  border: 0;
-  border-radius: 999px;
-  background: #a00034; /* granate */
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2); /* igual que el de Recuerdos */
-  transition: all 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  filter: brightness(0.9);
-  transform: translateY(-2px);
-}
-
-    .footer { padding: 12px 24px 24px; text-align: center; font-size: 12px; color: #000; }
-
-    @media (max-width: 480px) {
-      body { padding: 12px; }
-      .title { font-size: 48px !important; }
-      .subtitle { font-size: 18px; line-height: 1.4; }
-    }
-    @media (min-width: 1024px) {
-      .header { padding: 32px 48px; }
-      .title { font-size: 60px !important; }
-      .subtitle { font-size: 18px; }
-    }
-
-    /* Modal Asistencia */
-    #asistenciaModal {
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
+    .boda-foto img {
       width: 100%;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
-      background: url('mi_foto_boda_v37.png') center/cover no-repeat;
-    
+      height: auto;
+      display: block;
     }
-    #asistenciaModal .asistencia-content {
-      background: rgba(248,229,216,0.60);
-      border-radius: 12px;
-      max-width: 600px;
-      width: 100%;
-      max-height: 90%;
-      overflow-y: auto;
-      position: relative;
-      padding: 20px;
-      border: 2px solid #000000; /* ⚫ borde negro */
-    }
-    #asistenciaModal h2 {
-      text-align: center;
-      font-size: 40px;
-      font-weight: bold;
-      color: var(--brand);
-      margin: 0 auto 20px;
-      font-family: 'Great Vibes', cursive;
-    }
-   
-    #successBox, #errorBox { display: none; }
-    /* Modal Traslado */
-#trasladoModal {
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
 
-  /* Fondo con imagen */
-  background: url('mi_foto_boda_v2.JPG') center/cover no-repeat;
-}
-
-#trasladoModal .traslado-content {
-  background: rgba(248,229,216,0.8); /* crema semitransparente */
-  border-radius: 12px;
-  max-width: 600px;
-  width: 100%;
-  max-height: 90%;
-  overflow-y: auto;
-  position: relative;
-  padding: 20px;
-  color: #000; /* texto negro */
-   border: 2px solid #000000; /* ⚫ borde negro */
-}
-
-#trasladoModal h3,
-#trasladoModal h4,
-#trasladoModal p {
-  color: #000;
-}
-
-  
-   .countdown-section {
-  text-align: center;
-  margin: 20px auto 40px;
-  padding: 20px;
-  max-width: 600px;
-}
-
-.countdown-section h2 {
-  font-family: 'Great Vibes', cursive; /* más elegante */
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #a00034;
-}
-
-#countdown {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.time-box {
-  background: rgba(255, 245, 230, 0.9);
-  border: 2px solid #c9ab83;
-  border-radius: 12px;
-  padding: 15px 20px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
-  display: flex;               /* convierte en flexbox */
-  flex-direction: column;      /* texto en columna */
-  justify-content: center;     /* centra vertical */
-  align-items: center;         /* centra horizontal */
-  min-width: 70px;             /* ancho mínimo, pero ahora flexible */
-}
-
-
-.time-box span {
-  display: block;
-  font-size: 28px;
-  font-weight: bold;
-  color: var(--brand);
-}
-
-.time-box small {
-  font-size: 14px;
-  color: var(--ink);
-  font-family: 'Playfair Display', serif;
-}
-    .countdown-icon {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.countdown-icon img {
-  width: 110px;   /* ajusta al tamaño que quieras */
-  height: auto;
-  display: inline-block;
-}
-
-
-    .spinner {
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #b87b5a;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  animation: spin 1s linear infinite;
-  display: inline-block;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-    #recuerdosModal {
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-
-  /* 🎉 Fondo con imagen */
-  background: url('mi_foto_boda_v7.jpg') center/cover no-repeat;
-}
-
-#recuerdosModal .recuerdos-content {
-  background: rgba(248,229,216,0.80); /* crema semitransparente */
-  border-radius: 12px;
-  max-width: 500px;
-  width: 100%;
-  max-height: 90%;
-  overflow-y: auto;
-  position: relative;
-  padding: 20px;
-  color: #000;
-  border: 2px solid #000;
-}
-    #portada, #accesos {
-  transition: opacity 0.8s ease-in-out, visibility 0.8s;
-}
-
-/* Estado inicial */
-#portada {
-  opacity: 1;
-  visibility: visible;
-}
-#accesos {
-  min-height: 100vh;
-  background: url('mi_foto_boda_v24.jpg') center/cover no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 20px 0;
-  margin-top: 30px;
-
-  /* para transición */
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  transition: opacity 0.8s ease-in-out, visibility 0.8s;
-}
-
-/* Cuando se activa */
-#portada.hide {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-#accesos.show {
-  opacity: 1;
-  visibility: visible;
-  position: relative; /* vuelve a su flujo normal */
-}
-   .wedding-date {
-  font-size: 55px;        /* tamaño similar a la frase "Cuenta atrás" */
-  font-weight: 700;
-  text-align: center;
-  margin: 12px 0;
-  color: #a00034;         /* granate elegante */
-  font-family: 'Great Vibes', cursive;
-  text-transform: lowercase;  /* 👉 fuerza minúsculas */
-}
-
-.church-icon {
-  text-align: center;
-  margin-top: 8px;
-}
-
-.church-icon img {
-  width: 60px; 
-  height: auto;
-  opacity: 0.9;
-  animation: bounceIn 1.2s ease;
-}
-
-/* Animación */
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.3);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  70% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-    #portada {
-  min-height: 100vh;            /* ocupa toda la ventana */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;      /* centra verticalmente */
-  align-items: center;
-}
-    .intro-traslado {
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 15px 0 20px;
-  text-align: justify;
-  color: #333;
-}
-    /* Título del modal Traslado */
-.traslado-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: #a00034;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-/* Texto dentro del modal */
-.traslado-content p,
-.traslado-content h4 {
-  font-family: 'Lora', serif;
-  font-size: 17px;
-  line-height: 1.6;
-  text-align: center;
-  color: #333;
-  margin: 12px 0;
-  font-weight: 700; /* 👉 ahora todo en negrita */
-}
-
-.traslado-content h4 {
-  font-weight: 700;
-  color: #a00034;
-}
-    .traslado-icon {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.traslado-icon img {
-  width: 60px;   /* ajusta a tu gusto */
-  height: auto;
-  display: inline-block;
-}
-    .logo-portada {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.logo-portada img {
-  width: 240px;   /* un poco más grande que el icono de entrar */
-  height: auto;
-  display: inline-block;
-}
-    .asistencia-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.asistencia-title img {
-  max-width: 100px;  /* ajusta el tamaño a tu gusto */
-  height: auto;
-  display: inline-block;
-}
-    /* Modal Ubicación */
-#ubicacionModal {
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-
-  /* 🎉 Fondo con imagen */
-  background: url('mi_foto_boda_v6.JPG') center/cover no-repeat;
-}
-
-
-.ubicacion-content {
-  background: rgba(248,229,216,0.85);
-  border-radius: 12px;
-  max-width: 600px;
-  width: 100%;
-  max-height: 90%;
-  overflow-y: auto;
-  position: relative;
-  padding: 20px;
-  color: #000;
-  border: 2px solid #000;
-  text-align: center;
-}
-
-.ubicacion-icon img {
-  width: 80px;
-  margin-bottom: 10px;
-}
-
-.ubicacion-foto img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin: 15px 0;
-}
-
-.ubicacion-seccion {
-  margin: 20px 0;
-}
-
-.ubicacion-seccion .subicono {
-  width: 60px;
-  display: block;
-  margin: 0 auto 10px;
-}
-    .close-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  width: 32px;   /* ajusta tamaño */
-  height: 32px;
-}
-
-.close-btn img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-    .ubicacion-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;     /* más grande */
-  font-weight: 700;
-  color: #000;      /* granate */
-  margin-bottom: 12px;
-  text-align: center;
-}
-    /* Ajustes específicos para el cuestionario de asistencia */
-#rsvpForm {
-  max-width: 320px;
-  margin: 0 auto;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-#rsvpForm input,
-#rsvpForm select,
-#rsvpForm textarea {
-  max-width: 300px;   /* 👈 límite para que no desborde */
-  margin: 0 auto 15px;
-  display: block;
-  text-align: center;
-  box-sizing: border-box;
-}
- .modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-.modal.show {
-  opacity: 1;
-  visibility: visible;
-}
-    .date-box {
-  margin: 25px auto 40px;
-  padding: 12px 24px;
-  text-align: center;
-  border: 2px solid #a00034;     /* borde granate */
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.7); /* fondo semitransparente */
-  display: block;           /* 👈 lo cambiamos de inline-block a block */
-  width: fit-content;       /* 👈 ajusta el ancho al contenido */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 2s ease, transform 2s ease;
-}
-
-.date-box.show {
-  opacity: 1;
-  transform: translateY(0);
-  }
-
-.date-box span {
-  font-family: 'Great Vibes', cursive;
-  font-size: 38px;
-  font-weight: 700;
-  color: #a00034;                /* granate elegante */
-}
-    .recuerdos-header {
-  text-align: center;
-  margin-bottom: 15px;
-}
-    #recuerdosForm {
-  text-align: center;
-}
-    #recuerdosForm button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 18px;
-  border: 0;
-  border-radius: 999px;
-  background: #a00034; /* granate */
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-  transition: all 0.2s ease-in-out;
-}
-
-#recuerdosForm button:hover {
-  filter: brightness(0.9);
-}
-
-.recuerdos-icono {
-  width: 60px;      /* ajusta según tu icono */
-  margin-bottom: 8px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-    #recuerdosModal p {
-  text-align: center;   /* centra el texto */
-  font-weight: bold;    /* pone en negrita */
-  line-height: 1.6;     /* más cómodo de leer */
-}
-#recuerdosModal .recuerdos-content p,
-#ubicacionModal .ubicacion-content p,
-#trasladoModal .traslado-content p {
-  text-align: center;   
-  font-weight: 700;    
-  line-height: 1.5;
-  font-family: 'Bradley Hand ITC', cursive, sans-serif;
-  font-size: 24px; 
-  color: #000;  /* verde oliva */
-}
-    /* 📸 Foto debajo de los modales */
-.boda-foto {
-  width: 100%;
-  max-width: 900px;           /* límite para pantallas grandes */
-  margin: 30px auto;
-  border-radius: 16px;        /* bordes suaves */
-  overflow: hidden;           /* oculta posibles bordes sobrantes */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-}
-
-.boda-foto img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;          /* mantiene proporciones */
-  border-radius: 16px;
-}
-
-    
+    /* Logo */
     .logo-fecha {
-  text-align: center;
-  margin-top: 15px;
-}
+      text-align: center;
+      margin: 30px 0;
+      animation: fadeUp 4s ease-in-out;
+    }
 
-.logo-fecha img {
-  width: 140px;   /* ajusta el tamaño según tu logo */
-  height: auto;
-  display: inline-block;
-  opacity: 0.95;  /* un pelín suave para integrar */
-}
-    /* Animación de aparición del contenido dentro de los modales */
-.modal .asistencia-content,
-.modal .traslado-content,
-.modal .recuerdos-content,
-.modal .ubicacion-content {
-  opacity: 0;
-  transform: translateY(-20px);   /* empieza un poco arriba */
-  transition: opacity 1s ease, transform 1s ease;
-}
+    .logo-fecha img {
+      width: 140px;
+      opacity: 0.95;
+    }
 
-.modal.show .asistencia-content,
-.modal.show .traslado-content,
-.modal.show .recuerdos-content,
-.modal.show .ubicacion-content {
-  opacity: 1;
-  transform: translateY(0);      /* vuelve a su sitio */
-}
-    .asistencia-title h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: #000;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-/* Animación para mostrar el campo de acompañantes */
-#rowAcompanantesNombres {
-  opacity: 0;
-  max-height: 0;
-  transform: translateY(-10px); /* se desliza un poco hacia abajo */
-  overflow: hidden;
-  transition: 
-    opacity 0.8s ease,
-    max-height 0.8s ease,
-    transform 0.8s ease;
-}
+    /* Frase final */
+    .mensaje-final {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: #5a4b2b;
+      margin: 40px 20px;
+      line-height: 1.6;
+      animation: fadeUp 4s ease-in-out;
+    }
 
-/* Cuando se muestra */
-#rowAcompanantesNombres.show {
-  opacity: 1;
-  max-height: 200px;
-  transform: translateY(0);
-}
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #000;
+      opacity: 0.8;
+      animation: fadeUp 4s ease-in-out;
+    }
+        /* MODALES */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--overlay);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      z-index: 1000;
+    }
 
+    .modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
 
+    .modal-content {
+      background: rgba(248,229,216,0.95);
+      border-radius: 16px;
+      padding: 30px 25px;
+      max-width: 600px;
+      width: 90%;
+      color: #000;
+      border: 2px solid #000;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transform: scale(0.9);
+      opacity: 0;
+      transition: all 0.4s ease;
+      position: relative;
+    }
 
+    .modal.show .modal-content {
+      transform: scale(1);
+      opacity: 1;
+    }
 
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .close-btn img {
+      width: 28px;
+    }
   </style>
 </head>
+
 <body>
-<main id="portada">
-  <header class="header">
-    <h1 class="title">Boda Alejandro y Andrea</h1>
+  <header>
+    <h1 class="title">Boda de Alejandro & Andrea</h1>
     <p class="subtitle">
-     ¡Bienvenidos a nuestro espacio de boda! Nos hace una enorme ilusión que nos acompañéis en este momento tan especial de nuestras vidas. Aquí podréis compartir con nosotros vuestras preferencias para que todo esté perfecto y también encontrar toda la información sobre la celebración. ¡Gracias de corazón por formar parte de nuestra historia!   💖
+      ¡Bienvenidos a nuestro espacio de boda! Nos hace una enorme ilusión que nos acompañéis en este momento tan especial de nuestras vidas.
+      Aquí podréis compartir con nosotros vuestras preferencias para que todo esté perfecto y también encontrar toda la información sobre la celebración.
+      ¡Gracias de corazón por formar parte de nuestra historia! 💖
     </p>
   </header>
 
-  <!-- Botón único para entrar -->
-  <div class="icon-container">
-    <button class="icon-button" id="accesosBtn">
-      <img src="mi_foto_boda_v20.png" alt="" class="icon-img icono-entrar">
-      <span>Entrar</span>
-    </button>
-  </div>
-
-  <!-- Logotipo -->
-  <div class="logo-portada">
-    <img src="mi_foto_boda_v31.png" alt="Logo Alejandro y Andrea">
-  </div>
-</main>
-
-
-<!-- Página de accesos (oculta al inicio) -->
-<section id="accesos">
   <!-- Cuenta atrás -->
-  <section class="countdown-section" aria-labelledby="countdownTitle">
-    <div class="countdown-icon">
-      <img src="mi_foto_boda_v21.png" alt="">
-    </div>
-    <h2 id="countdownTitle">Cuenta Atrás</h2>
-    <div id="countdown" role="timer" aria-live="polite">
+  <section class="countdown-section">
+    <h2>Cuenta atrás</h2>
+    <div id="countdown">
       <div class="time-box"><span id="days">0</span><small>Días</small></div>
       <div class="time-box"><span id="hours">0</span><small>Horas</small></div>
       <div class="time-box"><span id="minutes">0</span><small>Min</small></div>
       <div class="time-box"><span id="seconds">0</span><small>Seg</small></div>
     </div>
   </section>
-  <div class="date-box">
-  <span>17 · Octubre · 2026</span>
-</div>
+
+  <div class="date-box">17 · Octubre · 2026</div>
+
+  <!-- Accesos -->
   <div class="icon-container">
-    <!-- Botón para modal Ubicación -->
-<button class="icon-button" id="ubicacionBtn">
-  <img src="mi_foto_boda_v33.png" alt="Ubicación" class="icon-img">
-  <span>Ubicación</span>
-</button>
+    <button class="icon-button" id="ubicacionBtn">
+      <img src="mi_foto_boda_v33.png" alt="Ubicación" class="icon-img">
+      <span>Ubicación</span>
+    </button>
     <button class="icon-button" id="asistenciaBtn">
-      <img src="mi_foto_boda_v26.png" alt="" class="icon-img">
-      <span>Cuestionario de asistencia</span>
+      <img src="mi_foto_boda_v26.png" alt="Asistencia" class="icon-img">
+      <span>Asistencia</span>
     </button>
     <button class="icon-button" id="trasladoBtn">
-      <img src="mi_foto_boda_v27.png" alt="" class="icon-img">
-      <span>Traslado de invitados</span>
+      <img src="mi_foto_boda_v27.png" alt="Traslado" class="icon-img">
+      <span>Traslado</span>
     </button>
     <button class="icon-button" id="recuerdosBtn">
-      <img src="recuerdos.png" alt="" class="icon-img">
-      <span>Rincón de los recuerdos</span>
+      <img src="recuerdos.png" alt="Recuerdos" class="icon-img">
+      <span>Recuerdos</span>
     </button>
   </div>
-  <!-- 📸 Foto debajo de los accesos -->
-<div class="boda-foto">
-  <img src="mi_foto_boda_v39.JPG" alt="Foto de compromiso Alejandro y Andrea">
-</div>
 
-  
-   <div class="logo-fecha">
-  <img src="mi_foto_boda_v31.png" alt="Logo iniciales Alejandro y Andrea">
-</div>
-</section>
+  <!-- Foto -->
+  <div class="boda-foto">
+    <img src="mi_foto_boda_v39.JPG" alt="Foto de compromiso Alejandro y Andrea">
+  </div>
 
-  <footer class="footer">© Alejandro & Andrea</footer>
-</section>
+  <!-- Logo -->
+  <div class="logo-fecha">
+    <img src="mi_foto_boda_v31.png" alt="Logo Alejandro y Andrea">
+  </div>
 
+  <!-- Frase final -->
+  <div class="mensaje-final">
+    Gracias por acompañarnos en este camino tan especial.<br>
+    Con cariño, <strong>Alejandro & Andrea</strong>.
+  </div>
 
-  <!-- Aquí siguen tus modales (Asistencia, Traslado, Recuerdos) tal cual los tienes -->
+  <footer>© Alejandro & Andrea</footer>
 
-<!-- Modal Asistencia -->
-<div id="asistenciaModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="asistenciaTitle">
-  <div class="asistencia-content">
-    <button id="closeAsistencia" aria-label="Cerrar formulario" class="close-btn">
-      <img src="mi_foto_boda_v36.png" alt="Cerrar">
-    </button>
-
-    <div class="asistencia-title">
-      <img src="mi_foto_boda_v32.png" alt="Cuestionario de asistencia">
-      <h3>Cuestionario de asistencia</h3>
-    </div>
-
-    <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbyR0kDkPjKhyVGAqirWjeG7KxL917Tz1tfJOo17r6v06V4JT2cPcjjHyYR8_CvZ_Ab-Kg/exec" method="POST" novalidate>
-      <div class="grid">
-
-        <div class="row">
-          <label for="nombre">Nombre y apellidos *</label>
-          <input id="nombre" name="nombre" type="text" required placeholder="Ej. Ana Pérez" />
-        </div>
-
-        <div class="row">
-          <label>¿Asistirás a la boda? *</label>
-          <div class="radio-row">
-            <label class="chip"><input type="radio" name="asistencia" value="sí" required /><span>Sí</span></label>
-            <label class="chip"><input type="radio" name="asistencia" value="no" required /><span>No</span></label>
-          </div>
-        </div>
-
-        <div class="row">
-          <label for="acompanantes">¿Cuántos acompañantes?</label>
-          <input id="acompanantes" name="acompanantes" type="number" min="0" max="10" value="0" />
-        </div>
-
-        <div class="row" id="rowAcompanantesNombres">
-  <label for="acompanantesNombres">Nombre y apellidos de los acompañantes</label>
-  <input id="acompanantesNombres" name="acompanantesNombres" type="text" placeholder="Ej. Juan Gómez, María López..." />
-</div>
-
-
-        <div class="row">
-          <label>¿Utilizarás el servicio de autobús?</label>
-          <div class="radio-row">
-            <label class="chip"><input type="radio" name="autobus" value="sí" /><span>Sí</span></label>
-            <label class="chip"><input type="radio" name="autobus" value="no" /><span>No</span></label>
-          </div>
-        </div>
-
+  <!-- MODAL ASISTENCIA -->
+  <div id="asistenciaModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeAsistencia"><img src="mi_foto_boda_v36.png" alt="Cerrar"></button>
+      <div class="asistencia-title">
+        <img src="mi_foto_boda_v32.png" alt="Cuestionario de asistencia" style="max-width:100px;display:block;margin:0 auto;">
+        <h3 style="text-align:center;font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#000;margin-top:10px;margin-bottom:15px;">Cuestionario de asistencia</h3>
       </div>
-
-      <div class="row">
-        <label for="alergias">¿Tienes alguna alergia, intolerancia o preferencia alimentaria?</label>
-        <input id="alergias" name="alergias" type="text" placeholder="Ej. sin gluten, frutos secos, vegetariano..." />
-      </div>
-
-      <div class="row">
+      <!-- formulario original idéntico -->
+      <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbyR0kDkPjKhyVGAqirWjeG7KxL917Tz1tfJOo17r6v06V4JT2cPcjjHyYR8_CvZ_Ab-Kg/exec" method="POST" novalidate>
+        <label for="nombre">Nombre y apellidos *</label>
+        <input id="nombre" name="nombre" type="text" required placeholder="Ej. Ana Pérez">
+        <label>¿Asistirás a la boda? *</label>
+        <div style="display:flex;justify-content:center;gap:10px;">
+          <label><input type="radio" name="asistencia" value="sí" required> Sí</label>
+          <label><input type="radio" name="asistencia" value="no" required> No</label>
+        </div>
+        <label for="acompanantes">¿Cuántos acompañantes?</label>
+        <input id="acompanantes" name="acompanantes" type="number" min="0" max="10" value="0">
+        <label for="alergias">¿Tienes alguna alergia o preferencia alimentaria?</label>
+        <input id="alergias" name="alergias" type="text">
         <label for="mensaje">¿Qué canción te gusta para que suene en la fiesta?</label>
         <textarea id="mensaje" name="mensaje" placeholder=" "></textarea>
+        <div style="text-align:center;margin-top:15px;">
+          <button type="submit" style="padding:10px 18px;border:0;border-radius:999px;background:#a00034;color:#fff;font-weight:600;font-size:15px;cursor:pointer;">Enviar confirmación</button>
+        </div>
+      </form>
+      <div id="successBox" style="display:none;text-align:center;margin-top:15px;"><h3>¡Gracias por tu respuesta! 💌</h3></div>
+      <div id="errorBox" style="display:none;text-align:center;margin-top:15px;"><h3>Vaya, algo no ha ido bien…</h3></div>
+    </div>
+  </div>
+
+  <!-- MODAL TRASLADO -->
+  <div id="trasladoModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeTraslado"><img src="mi_foto_boda_v36.png" alt="Cerrar"></button>
+      <div style="text-align:center;">
+        <img src="mi_foto_boda_v29.png" alt="Traslado" style="width:60px;margin-bottom:10px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#a00034;">Traslado de invitados</h3>
+        <p style="font-size:16px;line-height:1.6;color:#333;">
+          Cuando se acerque nuestro gran día, aquí encontraréis todos los detalles sobre el servicio de autobuses.
+          Compartiremos los horarios y puntos de recogida en Pamplona para acompañarnos hasta el banquete en el Palacio de Olloqui,
+          así como el regreso tras la fiesta para volver cómodamente a Pamplona.
+          ¡Queremos que disfrutéis al máximo, sin preocuparos de nada más que de celebrar con nosotros!
+        </p>
       </div>
+    </div>
+  </div>
 
-      <div class="actions">
-        <button type="submit">Enviar confirmación</button>
+  <!-- MODAL UBICACIÓN -->
+  <div id="ubicacionModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeUbicacion"><img src="mi_foto_boda_v36.png" alt="Cerrar"></button>
+      <div style="text-align:center;">
+        <img src="mi_foto_boda_v28.png" alt="Ceremonia" style="width:60px;margin-bottom:10px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#000;">Ceremonia religiosa</h3>
+        <p>La ceremonia religiosa tendrá lugar en la Catedral de Santa María la Real de Pamplona, un lugar único y lleno de historia.</p>
+        <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=42.819637,-1.641684" target="_blank">Ver ubicación en Google Maps</a></p>
+        <br>
+        <img src="mi_foto_boda_v34.png" alt="Banquete" style="width:60px;margin-bottom:10px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#000;">Banquete</h3>
+        <p>Continuaremos la celebración en el Palacio Cabo de Armería de Olloqui.</p>
+        <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=42.840699,-1.581877" target="_blank">Ver ubicación en Google Maps</a></p>
       </div>
-    </form>
-
-    <div class="success" id="successBox" role="status" aria-live="polite">
-      <h3>¡Gracias por tu respuesta! 💌</h3>
-      <p>Hemos registrado tu confirmación. Puedes cerrar esta página.</p>
-    </div>
-
-    <div class="error" id="errorBox" role="alert">
-      <h3>Vaya, algo no ha ido bien…</h3>
-      <p>Inténtalo de nuevo en unos segundos o avisa a los novios.</p>
     </div>
   </div>
-</div>
 
-<!-- Modal Traslado -->
-<div id="trasladoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="trasladoTitle">
-  <div class="traslado-content">
-    <button id="closeTraslado" aria-label="Cerrar información de traslado" class="close-btn">
-  <img src="mi_foto_boda_v36.png" alt="Cerrar">
-</button>
-     <div class="traslado-icon">
-      <img src="mi_foto_boda_v29.png" alt="Icono Traslado">
+  <!-- MODAL RECUERDOS -->
+  <div id="recuerdosModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeRecuerdos"><img src="mi_foto_boda_v36.png" alt="Cerrar"></button>
+      <div style="text-align:center;">
+        <img src="mi_foto_boda_v38.png" alt="Cámara" style="width:60px;margin-bottom:8px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#a00034;">Rincón de los recuerdos</h3>
+        <p style="font-size:16px;line-height:1.6;color:#333;">
+          El día de nuestra boda estará inmortalizado por un fotógrafo profesional 📷,
+          pero también queremos ver la celebración a través de vuestros ojos.
+          Os invitamos a subir aquí las fotos espontáneas que hagáis con vuestro móvil.
+        </p>
+        <form id="recuerdosForm">
+          <input type="file" id="foto" name="foto" accept="image/*" multiple required><br><br>
+          <button type="submit" style="padding:10px 18px;border:0;border-radius:999px;background:#a00034;color:#fff;font-weight:600;font-size:15px;cursor:pointer;">Enviar fotos</button>
+        </form>
+        <div id="recuerdosMsg" style="margin-top:10px;font-size:14px;"></div>
+      </div>
     </div>
-    <h3 id="trasladoTitle">Traslado de invitados</h3>
-    
-    <!-- ✨ Introducción añadida -->
-    <p class="intro-traslado">
-      Cuando se acerque nuestro gran día, aquí encontraréis todos los detalles sobre el servicio de autobuses. 
-      Compartiremos los horarios y puntos de recogida en Pamplona para acompañarnos hasta el banquete en el Palacio de Olloqui, 
-      así como el regreso tras la fiesta para volver cómodamente a Pamplona.  
-      ¡Queremos que disfrutéis al máximo, sin preocuparos de nada más que de celebrar con nosotros!
-    </p>
-    
-<!-- 🚧 INFO DE TRASLADO (OCULTA POR AHORA) 🚧 -->
-    <!-- p><strong>Ida:</strong> 13:30 desde La Cuesta Labrit (parada de autobuses).</p>
-    <p><strong>Vuelta:</strong> 02:00 desde Palacio de Olloqui hasta Hotel Tres Reyes, Pamplona.</p>
-    
-    <h4>Taxis recomendados:</h4>
-    <p>📞 Taxi Pamplona: 948 232 300<br>
-       📞 Radio Taxi: 948 351 335</p> -->
   </div>
-</div>
-  
-  <!-- Modal Ubicación -->
-<div id="ubicacionModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="ubicacionTitle">
-  <div class="ubicacion-content">
-    <button id="closeUbicacion" aria-label="Cerrar información de ubicación" class="close-btn">
-  <img src="mi_foto_boda_v36.png" alt="Cerrar">
-</button>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-
-    <!-- Lugar de la ceremonia -->
-   <div class="ubicacion-seccion">
-  <img src="mi_foto_boda_v28.png" alt="Icono ceremonia" class="subicono">
-
-  <h3>Ceremonia religiosa</h3>
-  <p>La ceremonia religiosa tendrá lugar en la Catedral de Santa María la Real de Pamplona, 
-  un lugar único y lleno de historia que hemos elegido para dar el "sí quiero".<br>
-  Os esperamos el 17 de octubre de 2026 a las 12:00 del mediodía, 
-  para compartir junto a nosotros este momento tan especial.</p>
-
-  <p>
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=42.819637,-1.641684"
-          target="_blank"
-          rel="noopener noreferrer">
-      Ver ubicación exacta en Google Maps
-    </a>
-  </p>
-</div>
-
-
-    <!-- Lugar del banquete -->
-  <div class="ubicacion-seccion">
-  <img src="mi_foto_boda_v34.png" alt="Icono banquete" class="subicono">
-
-  <h3>Banquete</h3>
-  <p>Continuaremos compartiendo este día tan especial en el Palacio Cabo de Armería de Olloqui,
-  un entorno con encanto donde disfrutaremos juntos de la comida, la celebración y, por supuesto, 
-  la fiesta hasta el final.</p>
-
-  <p>
-    📍 <a href="https://www.google.com/maps/search/?api=1&query=42.840699,-1.581877"
-          target="_blank"
-          rel="noopener noreferrer">
-      Ver ubicación exacta en Google Maps
-    </a>
-  </p>
-</div>
-
-  </div>
-</div>
-
-
- <!-- Modal Recuerdos -->
-<div id="recuerdosModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="recuerdosTitle">
-  <div class="recuerdos-content">
-    <button id="closeRecuerdos" aria-label="Cerrar rincón de recuerdos" class="close-btn">
-  <img src="mi_foto_boda_v36.png" alt="Cerrar">
-</button>
-   <div class="recuerdos-header">
-  <img src="mi_foto_boda_v38.png" alt="Cámara" class="recuerdos-icono">
-  <h3 id="recuerdosTitle">Rincón de los recuerdos</h3>
-</div>
-
-    <p>El día de nuestra boda estará inmortalizado por un fotógrafo profesional 📷, 
-  así que no os preocupéis, ¡tendremos fotos oficiales de cada momento!  
-  Pero también queremos ver la celebración a través de vuestros ojos 👀.  
-  Por eso, os invitamos a subir aquí todas las fotos espontáneas que hagáis con vuestro móvil:  
-  esos instantes divertidos, naturales y únicos que solo vosotros podéis captar.  </p>
-    <form id="recuerdosForm">
-      <input type="file" id="foto" name="foto" accept="image/*" multiple required><br><br>
-      <button type="submit">Enviar fotos</button>
-    </form>
-    <div id="recuerdosMsg" style="margin-top:10px; font-size:14px;"></div>
-  </div>
-</div>
-
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  /* ---------- Navegación portada ↔ accesos ---------- */
-  const portada = document.getElementById("portada");
-  const accesos = document.getElementById("accesos");
-  const accesosBtn = document.getElementById("accesosBtn");
-
-  function closeAllModals() {
-    document.querySelectorAll('.modal.show').forEach(m => m.classList.remove('show'));
-  }
-
-  accesosBtn.addEventListener("click", () => {
-    portada.classList.add("hide");
-    accesos.classList.add("show");
-    history.pushState({ page: "accesos" }, "Accesos", "#accesos");
-
-    const dateBox = document.querySelector(".date-box");
-    if (dateBox) {
-      dateBox.classList.remove("show");
-      setTimeout(() => dateBox.classList.add("show"), 100);
-    }
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  window.addEventListener("popstate", (event) => {
-    const state = event.state || { page: "portada" };
-
-    // 👇 Cierra cualquier modal abierto
-    closeAllModals();
-
-    if (state.page === "accesos") {
-      portada.classList.add("hide");
-      accesos.classList.add("show");
-
-      const dateBox = document.querySelector(".date-box");
-      if (dateBox) {
-        dateBox.classList.remove("show");
-        setTimeout(() => dateBox.classList.add("show"), 100);
+      /* === EFECTO DESENFOQUE DEL FONDO CUANDO SE ABRE UN MODAL === */
+      function toggleBlur(isOpen) {
+        if (isOpen) document.body.classList.add("modal-open");
+        else document.body.classList.remove("modal-open");
       }
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
+      /* === FUNCIÓN GENERAL PARA MODALES === */
+      function setupModal(openBtnId, modalId, closeBtnId) {
+        const openBtn = document.getElementById(openBtnId);
+        const modal = document.getElementById(modalId);
+        const closeBtn = document.getElementById(closeBtnId);
 
-    if (state.page === "modal" && state.modalId) {
-      portada.classList.add("hide");
-      accesos.classList.add("show");
-      const modal = document.getElementById(state.modalId);
-      if (modal) modal.classList.add("show");
-      return;
-    }
-
-    // 🏠 Por defecto: portada
-    accesos.classList.remove("show");
-    portada.classList.remove("hide");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  if (!history.state) {
-    history.replaceState({ page: "portada" }, "Portada", "#portada");
-  }
-
-  /* ---------- Cuenta atrás ---------- */
-  const weddingDate = new Date("Oct 17, 2026 12:00:00").getTime();
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-  const secondsEl = document.getElementById("seconds");
-
-  const timer = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    if (distance <= 0) {
-      clearInterval(timer);
-      const countdown = document.getElementById("countdown");
-      countdown.innerHTML = "💍 ¡Hoy es el gran día!";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    daysEl.textContent = days;
-    hoursEl.textContent = hours;
-    minutesEl.textContent = minutes;
-    secondsEl.textContent = seconds;
-  }, 1000);
-
-  /* ---------- Utilidades de modales accesibles ---------- */
-  let lastFocused = null;
-  const focusableSelector =
-    'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-
-  function trapFocus(modal, ev) {
-    if (ev.key !== "Tab") return;
-    const focusables = Array.from(modal.querySelectorAll(focusableSelector))
-      .filter(el => !el.hasAttribute("disabled") && el.tabIndex !== -1 && el.offsetParent !== null);
-    if (!focusables.length) return;
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-    if (ev.shiftKey && document.activeElement === first) {
-      last.focus(); ev.preventDefault();
-    } else if (!ev.shiftKey && document.activeElement === last) {
-      first.focus(); ev.preventDefault();
-    }
-  }
-
-  function openModal(modal, opener, focusTargetSelector) {
-    lastFocused = opener;
-    modal.classList.add("show");
-    modal.setAttribute("tabindex", "-1");
-    const target = focusTargetSelector
-      ? modal.querySelector(focusTargetSelector)
-      : modal.querySelector("h2, h3, input, button");
-    (target || modal).focus();
-
-    history.pushState({ page: "modal", modalId: modal.id }, "", `#${modal.id}`);
-  }
-
-  function closeModal(modal) {
-    modal.classList.remove("show");
-    if (lastFocused) lastFocused.focus();
-    history.back(); // 👈 retroceso real, popstate cierra modales
-  }
-
-  function setupModal({ opener, modal, closeBtn, focusSelector }) {
-    opener.addEventListener("click", () => openModal(modal, opener, focusSelector));
-    closeBtn.addEventListener("click", () => closeModal(modal));
-    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(modal); });
-    modal.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal(modal);
-      trapFocus(modal, e);
-    });
-  }
-
-  /* ---------- Modal Asistencia ---------- */
-  const asistenciaBtn = document.getElementById("asistenciaBtn");
-  const asistenciaModal = document.getElementById("asistenciaModal");
-  const closeAsistencia = document.getElementById("closeAsistencia");
-  setupModal({ opener: asistenciaBtn, modal: asistenciaModal, closeBtn: closeAsistencia, focusSelector: "#nombre" });
-
-  // Envío del formulario RSVP
-  (function () {
-    const form = document.getElementById('rsvpForm');
-    const successBox = document.getElementById('successBox');
-    const errorBox = document.getElementById('errorBox');
-    const submitBtn = form.querySelector("button[type='submit']");
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      submitBtn.disabled = true;
-      const spinner = document.createElement("span");
-      spinner.classList.add("spinner");
-      submitBtn.appendChild(spinner);
-
-      const data = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: data,
-          headers: { 'Accept': 'application/json' }
+        openBtn.addEventListener("click", () => {
+          modal.classList.add("show");
+          toggleBlur(true);
         });
 
-        if (response.ok) {
-          form.style.display = 'none';
-          errorBox.style.display = 'none';
-          successBox.style.display = 'block';
+        closeBtn.addEventListener("click", () => {
+          modal.classList.remove("show");
+          toggleBlur(false);
+        });
 
-          setTimeout(() => {
-            asistenciaModal.classList.remove("show");
-            form.reset();
-            form.style.display = 'block';
-            successBox.style.display = 'none';
-            submitBtn.disabled = false;
-            spinner.remove();
-          }, 3000);
-        } else {
-          throw new Error('Error en el envío');
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.classList.remove("show");
+            toggleBlur(false);
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("show")) {
+            modal.classList.remove("show");
+            toggleBlur(false);
+          }
+        });
+      }
+
+      setupModal("asistenciaBtn", "asistenciaModal", "closeAsistencia");
+      setupModal("trasladoBtn", "trasladoModal", "closeTraslado");
+      setupModal("ubicacionBtn", "ubicacionModal", "closeUbicacion");
+      setupModal("recuerdosBtn", "recuerdosModal", "closeRecuerdos");
+
+      /* === CUENTA ATRÁS === */
+      const weddingDate = new Date("Oct 17, 2026 12:00:00").getTime();
+      const daysEl = document.getElementById("days");
+      const hoursEl = document.getElementById("hours");
+      const minutesEl = document.getElementById("minutes");
+      const secondsEl = document.getElementById("seconds");
+
+      const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance <= 0) {
+          clearInterval(timer);
+          document.getElementById("countdown").innerHTML = "💍 ¡Hoy es el gran día!";
+          return;
         }
-      } catch (err) {
-        form.style.display = 'none';
-        successBox.style.display = 'none';
-        errorBox.style.display = 'block';
 
-        setTimeout(() => {
-          errorBox.style.display = 'none';
-          form.style.display = 'block';
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        daysEl.textContent = days;
+        hoursEl.textContent = hours;
+        minutesEl.textContent = minutes;
+        secondsEl.textContent = seconds;
+      }, 1000);
+
+      /* === ENVÍO FORMULARIO ASISTENCIA === */
+      const form = document.getElementById('rsvpForm');
+      if (form) {
+        const successBox = document.getElementById('successBox');
+        const errorBox = document.getElementById('errorBox');
+        const submitBtn = form.querySelector("button[type='submit']");
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          submitBtn.disabled = true;
+          const spinner = document.createElement("span");
+          spinner.textContent = " ⏳";
+          submitBtn.appendChild(spinner);
+
+          const data = new FormData(form);
+
+          try {
+            const response = await fetch(form.action, {
+              method: form.method,
+              body: data,
+              headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+              form.style.display = 'none';
+              errorBox.style.display = 'none';
+              successBox.style.display = 'block';
+              setTimeout(() => {
+                successBox.style.display = 'none';
+                form.style.display = 'block';
+                submitBtn.disabled = false;
+                spinner.remove();
+                form.reset();
+                document.getElementById("asistenciaModal").classList.remove("show");
+                toggleBlur(false);
+              }, 3000);
+            } else {
+              throw new Error("Error en el envío");
+            }
+          } catch (err) {
+            successBox.style.display = 'none';
+            errorBox.style.display = 'block';
+            setTimeout(() => {
+              errorBox.style.display = 'none';
+              form.style.display = 'block';
+              submitBtn.disabled = false;
+              spinner.remove();
+            }, 3000);
+          }
+        });
+      }
+
+      /* === ENVÍO FORMULARIO RECUERDOS === */
+      const recuerdosForm = document.getElementById("recuerdosForm");
+      const recuerdosMsg = document.getElementById("recuerdosMsg");
+
+      if (recuerdosForm) {
+        recuerdosForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          recuerdosMsg.innerHTML = "";
+          const files = document.getElementById("foto").files;
+          const submitBtn = recuerdosForm.querySelector('button[type="submit"]');
+
+          if (files.length === 0) {
+            recuerdosMsg.textContent = "⚠️ Selecciona al menos una foto.";
+            return;
+          }
+
+          submitBtn.disabled = true;
+          const spinner = document.createElement("span");
+          spinner.textContent = " ⏳";
+          submitBtn.appendChild(spinner);
+
+          for (const file of files) {
+            try {
+              const reader = new FileReader();
+              const base64 = await new Promise((resolve, reject) => {
+                reader.onloadend = () => resolve(reader.result.split(",")[1]);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+              });
+
+              const response = await fetch("https://script.google.com/macros/s/AKfycbwN9bUuAkucwZ3kpuYLdzDqGfnIgwzyQ-q5Wz5qxleE4LRKk5_A0nZ459TZrk4E9WZDvQ/exec", {
+                method: "POST",
+                body: new URLSearchParams({
+                  foto: base64,
+                  nombreArchivo: file.name,
+                  mimeType: file.type
+                })
+              });
+
+              const result = await response.json();
+              if (result.status === "ok") {
+                recuerdosMsg.innerHTML += `✅ ${file.name} subida correctamente<br>`;
+              } else {
+                recuerdosMsg.innerHTML += `❌ Error al subir ${file.name}<br>`;
+              }
+            } catch (err) {
+              recuerdosMsg.innerHTML += `⚠️ Fallo al subir ${file.name}: ${err.message}<br>`;
+            }
+          }
+
           submitBtn.disabled = false;
           spinner.remove();
-        }, 3000);
-      }
-    });
-  })();
-     /* ---------- Mostrar/ocultar campo de acompañantes (con animación) ---------- */
-  const inputAcompanantes = document.getElementById("acompanantes");
-  const rowAcompanantesNombres = document.getElementById("rowAcompanantesNombres");
-  const inputAcompanantesNombres = document.getElementById("acompanantesNombres");
-
-  if (inputAcompanantes && rowAcompanantesNombres) {
-    inputAcompanantes.addEventListener("input", () => {
-      const num = parseInt(inputAcompanantes.value, 10);
-      if (num > 0) {
-        rowAcompanantesNombres.classList.add("show");
-      } else {
-        rowAcompanantesNombres.classList.remove("show");
-        inputAcompanantesNombres.value = "";
-      }
-    });
-  }
-
-
-
-  /* ---------- Modal Traslado ---------- */
-  const trasladoBtn = document.getElementById("trasladoBtn");
-  const trasladoModal = document.getElementById("trasladoModal");
-  const closeTraslado = document.getElementById("closeTraslado");
-  setupModal({ opener: trasladoBtn, modal: trasladoModal, closeBtn: closeTraslado });
-
-  /* ---------- Modal Recuerdos ---------- */
-  const recuerdosBtn = document.getElementById("recuerdosBtn");
-  const recuerdosModal = document.getElementById("recuerdosModal");
-  const closeRecuerdos = document.getElementById("closeRecuerdos");
-  setupModal({ opener: recuerdosBtn, modal: recuerdosModal, closeBtn: closeRecuerdos });
-
-  /* ---------- Modal Ubicación ---------- */
-  const ubicacionBtn = document.getElementById("ubicacionBtn");
-  const ubicacionModal = document.getElementById("ubicacionModal");
-  const closeUbicacion = document.getElementById("closeUbicacion");
-  setupModal({ opener: ubicacionBtn, modal: ubicacionModal, closeBtn: closeUbicacion });
-
-  // Subida de fotos
-  const recuerdosForm = document.getElementById("recuerdosForm");
-  const recuerdosMsg = document.getElementById("recuerdosMsg");
-
-  async function readFileAsBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result.split(",")[1]);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
-  }
-
-  recuerdosForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    recuerdosMsg.innerHTML = "";
-    const files = document.getElementById("foto").files;
-    const submitBtn = recuerdosForm.querySelector('button[type="submit"]');
-
-    if (files.length === 0) {
-      recuerdosMsg.textContent = "⚠️ Selecciona al menos una foto.";
-      return;
-    }
-
-    submitBtn.disabled = true;
-    const spinner = document.createElement("span");
-    spinner.classList.add("spinner");
-    submitBtn.appendChild(spinner);
-
-    for (const file of files) {
-      try {
-        const base64 = await readFileAsBase64(file);
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwN9bUuAkucwZ3kpuYLdzDqGfnIgwzyQ-q5Wz5qxleE4LRKk5_A0nZ459TZrk4E9WZDvQ/exec", {
-          method: "POST",
-          body: new URLSearchParams({
-            foto: base64,
-            nombreArchivo: file.name,
-            mimeType: file.type
-          })
         });
-        const result = await response.json();
-        if (result.status === "ok") {
-          recuerdosMsg.innerHTML += `✅ ${file.name} subida correctamente<br>`;
-        } else {
-          recuerdosMsg.innerHTML += `❌ Error al subir ${file.name}<br>`;
-        }
-      } catch (err) {
-        recuerdosMsg.innerHTML += `⚠️ Fallo al subir ${file.name}: ${err.message}<br>`;
       }
-    }
-
-    submitBtn.disabled = false;
-    spinner.remove();
-  });
-});
-</script>
-
-
+    });
+  </script>
 </body>
 </html>
 
-</html>
+
+
 
 
 
