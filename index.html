@@ -56,19 +56,19 @@
     }
 
 header {
-  text-align: center;
-  padding: 25px 30px;
-  animation: fadeUp 2s ease-in-out, drawBorder 2.5s ease forwards;
-  border: 2px solid #6b4a2b; /* mismo color que el texto */
-  border-radius: 25px;
-  max-width: 500px; /* tamaño más ajustado al título */
-  margin: 40px auto 20px;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
+  border-radius: 30px;
+  border: 10px solid transparent;
+  border-image: repeating-linear-gradient(
+    60deg,
+    #6b4a2b 0 6px,
+    transparent 6px 12px
+  ) 15;
+  box-shadow:
+    0 0 14px rgba(107,74,43,0.3),
+    inset 0 0 8px rgba(107,74,43,0.2);
+  padding: 35px;
 }
+
 
 
 
@@ -1088,6 +1088,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
