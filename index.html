@@ -129,20 +129,40 @@
     }
 
     /* Fecha */
-    .date-box {
-      text-align: center;
-      margin: 30px auto;
-      font-size: 38px;
-      font-family: 'Great Vibes', cursive;
-      color: #a00034;
-      border: 2px solid #a00034;
-      display: inline-block;
-      padding: 10px 25px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.7);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      animation: fadeUp 4s ease-in-out;
-    }
+   /* === ESTILO NUEVO DE LA FECHA (tipo invitación elegante) === */
+.date-box {
+  display: inline-block;
+  text-align: center;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background: #f8f1e3; /* fondo crema */
+  border-radius: 20px;
+  border: 1px solid rgba(107, 74, 43, 0.3); /* borde suave marrón */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  font-family: 'Cinzel', serif;
+  color: #6b4a2b;
+  letter-spacing: 3px;
+}
+
+.date-box span {
+  display: block;
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  color: #6b4a2b;
+}
+
+.date-box small {
+  display: block;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: rgba(107, 74, 43, 0.9);
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
+
 
     /* Iconos */
     .icon-container {
@@ -486,7 +506,10 @@ label {
       </div>
     </section>
 
-    <div class="date-box">17 · Octubre · 2026</div>
+    <div class="date-box">
+  <span>17 · 10 · 2026</span>
+  <small>Día de la boda</small>
+</div>
 
     <!-- Accesos -->
     <div class="icon-container">
@@ -856,6 +879,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
