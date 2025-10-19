@@ -530,15 +530,6 @@ label {
 /* === RINCÓN DE LOS RECUERDOS — versión refinada === */
 
 /* Texto de información */
-#recuerdosModal .recuerdos-content p {
-  text-align: center;
-  font-weight: 700; /* negrita */
-  font-family: 'Lora', serif;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #000;
-  margin-bottom: 18px;
-}
 
 /* Formulario centrado */
 #recuerdosForm {
@@ -597,6 +588,18 @@ label {
   filter: brightness(0.9);
   transform: translateY(-2px);
 }
+    /* === TEXTOS INFORMATIVOS UNIFICADOS EN MODALES === */
+#trasladoModal .traslado-content p,
+#recuerdosModal .recuerdos-content p,
+#ubicacionModal .ubicacion-content p {
+  font-family: 'Bradley Hand ITC', cursive, sans-serif; /* misma letra que el subtítulo */
+  font-size: 22px;
+  color: #000;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 700; /* en negrita, como pediste antes */
+}
+
 
 
   </style>
@@ -1016,6 +1019,7 @@ if (fileInput && recuerdosMsg) {
 }
 
 </script>
+
 
 
 
