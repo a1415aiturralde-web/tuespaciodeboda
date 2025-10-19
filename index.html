@@ -684,6 +684,54 @@ label {
   line-height: 1.6;
   font-weight: 700; /* en negrita */
 }
+  /* === TITULOS Y SUBTITULOS DENTRO DE MODALES === */
+
+/* Título principal de cada modal */
+.modal-content h3.modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 26px;
+  color: #6b4a2b;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+}
+
+/* Subtítulo (por ejemplo, dentro de ubicación o recuerdos) */
+.modal-content h4.modal-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #a00034;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+/* Texto informativo general (párrafos dentro de los modales) */
+.modal-content p {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  color: #2b2b2b;
+  text-align: center;
+  line-height: 1.7;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+
+/* Enlaces dentro de los modales */
+.modal-content a {
+  color: #a00034;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.modal-content a:hover {
+  text-decoration: underline;
+}
+
 
   </style>
 </head>
@@ -840,10 +888,12 @@ label {
 </div>
 
 
- <!-- MODAL TRASLADO -->
+<!-- MODAL TRASLADO -->
 <div id="trasladoModal" class="modal">
   <div class="modal-content">
-    <button class="close-btn" id="closeTraslado"><img src="mi_foto_boda_v36.png" alt="Cerrar"></button>
+    <button class="close-btn" id="closeTraslado">
+      <img src="mi_foto_boda_v36.png" alt="Cerrar">
+    </button>
     <div style="text-align:center;">
       <img src="mi_foto_boda_v29.png" alt="Traslado" style="width:60px;margin-bottom:10px;">
       <h3 class="modal-title">Traslado de invitados</h3>
@@ -857,10 +907,13 @@ label {
   </div>
 </div>
 
+
 <!-- MODAL UBICACIÓN -->
 <div id="ubicacionModal" class="modal">
   <div class="modal-content">
-    <button class="close-btn" id="closeUbicacion"><img src="mi_foto_boda_v36.png" alt="Cerrar"></button>
+    <button class="close-btn" id="closeUbicacion">
+      <img src="mi_foto_boda_v36.png" alt="Cerrar">
+    </button>
     <div style="text-align:center;">
       <img src="mi_foto_boda_v28.png" alt="Ceremonia" style="width:60px;margin-bottom:10px;">
       <h3 class="modal-title">Ceremonia religiosa</h3>
@@ -870,24 +923,36 @@ label {
         Os esperamos el 17 de octubre de 2026 a las 12:00 del mediodía,
         para compartir junto a nosotros este momento tan especial.
       </p>
-      <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=42.819637,-1.641684" target="_blank">Ver ubicación en Google Maps</a></p>
+      <p>
+        📍 <a href="https://www.google.com/maps/search/?api=1&query=42.819637,-1.641684" target="_blank">
+          Ver ubicación en Google Maps
+        </a>
+      </p>
+
       <br>
       <img src="mi_foto_boda_v34.png" alt="Banquete" style="width:60px;margin-bottom:10px;">
-      <h3 class="modal-title">Banquete</h3>
+      <h4 class="modal-subtitle">Banquete</h4>
       <p>
         Continuaremos compartiendo este día tan especial en el Palacio Cabo de Armería de Olloqui,
         un entorno con encanto donde disfrutaremos juntos de la comida, la celebración y, por supuesto,
         la fiesta hasta el final.
       </p>
-      <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=42.840699,-1.581877" target="_blank">Ver ubicación en Google Maps</a></p>
+      <p>
+        📍 <a href="https://www.google.com/maps/search/?api=1&query=42.840699,-1.581877" target="_blank">
+          Ver ubicación en Google Maps
+        </a>
+      </p>
     </div>
   </div>
 </div>
 
+
 <!-- MODAL RECUERDOS -->
 <div id="recuerdosModal" class="modal">
   <div class="modal-content">
-    <button class="close-btn" id="closeRecuerdos"><img src="mi_foto_boda_v36.png" alt="Cerrar"></button>
+    <button class="close-btn" id="closeRecuerdos">
+      <img src="mi_foto_boda_v36.png" alt="Cerrar">
+    </button>
     <div style="text-align:center;">
       <img src="mi_foto_boda_v38.png" alt="Cámara" style="width:60px;margin-bottom:8px;">
       <h3 class="modal-title">Rincón de los recuerdos</h3>
@@ -896,7 +961,7 @@ label {
         así que no os preocupéis, ¡tendremos fotos oficiales de cada momento!  
         Pero también queremos ver la celebración a través de vuestros ojos 👀.  
         Por eso, os invitamos a subir aquí todas las fotos espontáneas que hagáis con vuestro móvil:
-        esos instantes divertidos, naturales y únicos que solo vosotros podéis captar.  
+        esos instantes divertidos, naturales y únicos que solo vosotros podéis captar.
       </p>
 
       <form id="recuerdosForm">
@@ -905,10 +970,10 @@ label {
         <div id="recuerdosMsg"></div>
         <button type="submit">Enviar fotos</button>
       </form>
-      <div id="recuerdosMsg" style="margin-top:10px;font-size:14px;"></div>
     </div>
   </div>
 </div>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1095,6 +1160,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
