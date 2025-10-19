@@ -344,43 +344,76 @@ header .subtitle { animation-delay: 1.2s; }
 
 
 
-    /* Iconos */
-    .icon-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin: 50px auto;
-      max-width: 720px;
-      animation: fadeUp 4s ease-in-out;
-    }
+/* === CONTENEDOR DE LOS BOTONES EN COLUMNA === */
+.icon-container {
+  display: flex;
+  flex-direction: column;     /* 🔹 uno debajo del otro */
+  align-items: center;
+  gap: 25px;                  /* espacio entre cada uno */
+  margin: 60px auto;
+  max-width: 650px;           /* ancho similar al recuadro de la fecha */
+  animation: fadeUp 2s ease-in-out;
+}
 
-    .icon-button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #fdfcfb;
-      padding: 16px;
-      border-radius: 16px;
-      border: 2px solid #000;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      min-width: 100px;
-    }
+/* === BOTONES DE MODALES — ELEGANTES Y GRANDES === */
+.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;                /* 🔹 ocupan todo el ancho del contenedor */
+  padding: 30px 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(107, 74, 43, 0.3);
+  background:
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.25)),
+    url("mi_foto_boda_v37.png"); /* 🔹 misma imagen decorativa */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
 
-    .icon-button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-    }
+/* Efecto flotante */
+.icon-button:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
 
-    .icon-button span {
-      margin-top: 8px;
-      font-weight: bold;
-      color: #000;
-      font-size: 14px;
-    }
+/* Iconos */
+.icon-img {
+  width: 70px;
+  height: auto;
+  margin-bottom: 10px;
+}
 
-    .icon-img { width: 60px; height: auto; }
+/* Texto debajo del icono */
+.icon-button span {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #6b4a2b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Responsive (móvil) */
+@media (max-width: 600px) {
+  .icon-container {
+    max-width: 90%;
+  }
+
+  .icon-button {
+    padding: 25px 15px;
+  }
+
+  .icon-button span {
+    font-size: 16px;
+  }
+
 
     /* Foto */
     .boda-foto {
@@ -1182,7 +1215,6 @@ html {
   </div>
 </div>
 
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const pageWrapper = document.getElementById("page-wrapper");
@@ -1399,8 +1431,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  /* === ✨ ANIMACIÓN SUAVE AL HACER SCROLL (para los modales) === */
+  const modalButtons = document.querySelectorAll('.icon-button');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target); // deja de observar una vez mostrado
+      }
+    });
+  }, { threshold: 0.2 });
+
+  modalButtons.forEach((btn, index) => {
+    // Pequeño retraso para que aparezcan uno tras otro
+    btn.style.transitionDelay = `${index * 0.2}s`;
+    observer.observe(btn);
+  });
+
 });
 </script>
+
 
 
 
