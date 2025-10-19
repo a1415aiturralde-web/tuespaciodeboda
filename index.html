@@ -306,19 +306,32 @@
     .close-btn img { width: 28px; }
     /* === ESTILO FINAL DEL FORMULARIO DE ASISTENCIA === */
 /* === MODAL ASISTENCIA === */
+/* === MODAL ASISTENCIA (mismo fondo que los demás) === */
 #asistenciaModal {
   position: fixed;
   z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  background: #f8f1e3; /* 👈 Fondo crema, SIN imagen */
+
+  /* Fondo oscuro translúcido con desenfoque */
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  opacity: 0;
+  visibility: hidden;
 }
+
+#asistenciaModal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 #asistenciaModal .asistencia-content {
   background: rgba(248,229,216,0.80); /* crema semitransparente */
@@ -895,6 +908,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
