@@ -264,6 +264,99 @@
     }
 
     .close-btn img { width: 28px; }
+    /* === ESTILO FINAL DEL FORMULARIO DE ASISTENCIA === */
+#rsvpForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: #2b2b2b;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#rsvpForm label {
+  font-weight: 700;
+  color: #2b2b2b;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+#rsvpForm input[type="text"],
+#rsvpForm input[type="number"],
+#rsvpForm textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid #2b2b2b;
+  font-size: 15px;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  font-family: 'Lora', serif;
+  transition: all 0.3s ease;
+}
+
+#rsvpForm input:focus,
+#rsvpForm textarea:focus {
+  border-color: #a00034;
+  box-shadow: 0 0 6px rgba(160, 0, 52, 0.25);
+  outline: none;
+}
+
+#rsvpForm textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+/* === Radios personalizados (Sí / No) === */
+#rsvpForm div[style*="display:flex"] {
+  justify-content: center;
+  gap: 18px !important;
+  margin: 10px 0;
+}
+
+#rsvpForm input[type="radio"] {
+  display: none;
+}
+
+#rsvpForm label input[type="radio"] + span,
+#rsvpForm label span {
+  border: 2px solid #a00034;
+  border-radius: 999px;
+  padding: 6px 20px;
+  font-weight: bold;
+  color: #a00034;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#rsvpForm input[type="radio"]:checked + span,
+#rsvpForm label input[type="radio"]:checked + span {
+  background-color: #a00034;
+  color: white;
+}
+
+/* === Botón principal === */
+#rsvpForm button[type="submit"] {
+  background: #a00034;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-family: 'Lora', serif;
+  border: none;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.3s ease;
+}
+
+#rsvpForm button[type="submit"]:hover {
+  background: #8a0030;
+}
+
   </style>
 </head>
 
@@ -347,10 +440,11 @@
         <label for="nombre">Nombre y apellidos *</label>
         <input id="nombre" name="nombre" type="text" required placeholder="Ej. Ana Pérez">
         <label>¿Asistirás a la boda? *</label>
-        <div style="display:flex;justify-content:center;gap:10px;">
-          <label><input type="radio" name="asistencia" value="sí" required> Sí</label>
-          <label><input type="radio" name="asistencia" value="no" required> No</label>
-        </div>
+       <div style="display:flex;justify-content:center;gap:10px;">
+  <label><input type="radio" name="asistencia" value="sí" required><span>Sí</span></label>
+  <label><input type="radio" name="asistencia" value="no" required><span>No</span></label>
+</div>
+
         <label for="acompanantes">¿Cuántos acompañantes?</label>
         <input id="acompanantes" name="acompanantes" type="number" min="0" max="10" value="0">
         <label for="alergias">¿Tienes alguna alergia o preferencia alimentaria?</label>
@@ -593,6 +687,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
