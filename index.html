@@ -57,12 +57,19 @@
 
 header {
   text-align: center;
-  padding: 20px;
-  border: none; /* quitamos el borde decorativo */
-  background: transparent; /* sin fondo */
-  box-shadow: none; /* sin sombra */
-  margin: 20px auto 10px;
+  padding: 25px 30px;
+  animation: fadeUp 2s ease-in-out, drawBorder 2.5s ease forwards;
+  border: 2px solid #6b4a2b; /* mismo color que el texto */
+  border-radius: 25px;
+  max-width: 500px; /* tamaño más ajustado al título */
+  margin: 40px auto 20px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
 }
+
 
 
 /* === Ajustes específicos para pantallas pequeñas === */
@@ -130,6 +137,19 @@ header .subtitle { animation-delay: 1.2s; }
       max-width: 800px;
       margin: 0 auto;
     }
+  .subtitle-box {
+  text-align: center;
+  padding: 25px 30px;
+  border: 2px solid #6b4a2b; /* mismo color que la letra */
+  border-radius: 25px;
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  animation: fadeUp 2s ease-in-out;
+  box-sizing: border-box;
+}
+
 
     /* Cuenta atrás */
    /* === CUENTA ATRÁS (centrada y equilibrada) === */
@@ -710,11 +730,14 @@ label {
         <span>Recuerdos</span>
       </button>
     </div>
-     <p class="subtitle">
-        ¡Bienvenidos a nuestro espacio de boda! Nos hace una enorme ilusión que nos acompañéis en este momento tan especial de nuestras vidas.
-        Aquí podréis compartir con nosotros vuestras preferencias para que todo esté perfecto y también encontrar toda la información sobre la celebración.
-        ¡Gracias de corazón por formar parte de nuestra historia!
-      </p>
+   <div class="subtitle-box">
+  <p class="subtitle">
+    ¡Bienvenidos a nuestro espacio de boda! Nos hace una enorme ilusión que nos acompañéis en este momento tan especial de nuestras vidas.
+    Aquí podréis compartir con nosotros vuestras preferencias para que todo esté perfecto y también encontrar toda la información sobre la celebración.
+    ¡Gracias de corazón por formar parte de nuestra historia!
+  </p>
+</div>
+
 
     <!-- Foto -->
     <div class="boda-foto">
@@ -1065,6 +1088,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
