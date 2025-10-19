@@ -146,11 +146,14 @@ header .subtitle { animation-delay: 1.2s; }
 }
 
 .countdown-section h2 {
-  font-family: 'Great Vibes', cursive; /* estilo elegante */
-  font-size: 36px;
+  font-family: 'Cinzel', serif;     /* misma fuente que Día de la boda */
+  font-size: 28px;                  /* tamaño equilibrado */
+  font-weight: 700;
+  color: #6b4a2b;                   /* mismo tono marrón dorado */
+  letter-spacing: 3px;              /* misma separación elegante */
   margin-bottom: 20px;
-  color: #a00034;
 }
+
 
 #countdown {
   display: flex;
@@ -675,16 +678,11 @@ label {
 
     <header>
       <h1 class="title">Alejandro & Andrea</h1>
-      <p class="subtitle">
-        ¡Bienvenidos a nuestro espacio de boda! Nos hace una enorme ilusión que nos acompañéis en este momento tan especial de nuestras vidas.
-        Aquí podréis compartir con nosotros vuestras preferencias para que todo esté perfecto y también encontrar toda la información sobre la celebración.
-        ¡Gracias de corazón por formar parte de nuestra historia!
-      </p>
     </header>
 
     <!-- Cuenta atrás -->
     <section class="countdown-section">
-      <h2>Cuenta atrás</h2>
+      <h2>Unete a nosotros</h2>
       <div id="countdown">
         <div class="time-box"><span id="days">0</span><small>Días</small></div>
         <div class="time-box"><span id="hours">0</span><small>Horas</small></div>
@@ -717,6 +715,11 @@ label {
         <span>Recuerdos</span>
       </button>
     </div>
+     <p class="subtitle">
+        ¡Bienvenidos a nuestro espacio de boda! Nos hace una enorme ilusión que nos acompañéis en este momento tan especial de nuestras vidas.
+        Aquí podréis compartir con nosotros vuestras preferencias para que todo esté perfecto y también encontrar toda la información sobre la celebración.
+        ¡Gracias de corazón por formar parte de nuestra historia!
+      </p>
 
     <!-- Foto -->
     <div class="boda-foto">
@@ -1067,6 +1070,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
