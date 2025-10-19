@@ -173,59 +173,36 @@ header .subtitle { animation-delay: 1.2s; }
 
 
 /* === CONTADOR ELEGANTE === */
+/* === Puntos separadores elegantes entre bloques === */
 #countdown {
   display: flex;
   justify-content: center;
-  align-items: baseline;
-  gap: 40px; /* más espacio entre columnas */
+  align-items: flex-end;
+  gap: 50px; /* espacio entre grupos */
   flex-wrap: nowrap;
   margin-top: 10px;
+  position: relative;
 }
 
 .time-box {
   text-align: center;
   font-family: 'Cinzel', serif;
-  color: #6b4a2b; /* mismo color que el título */
-}
-
-.time-box span {
-  display: block;
-  font-size: 48px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.time-box span.change {
-  opacity: 0.6;
-  transform: scale(1.1);
-}
-
-.time-box small {
-  display: block;
-  font-size: 14px;
-  letter-spacing: 2px;
-  margin-top: 4px;
-  font-weight: 600;
   color: #6b4a2b;
-  text-transform: uppercase;
+  position: relative; /* para ubicar el punto con precisión */
 }
 
-/* Puntos separadores */
-#countdown::before,
-#countdown::after {
-  content: "";
-}
-
+/* Punto centrado entre cada bloque */
 .time-box:not(:last-child)::after {
   content: "·";
-  font-size: 36px;
+  position: absolute;
+  right: -30px; /* distancia entre número y punto */
+  top: 50%;
+  transform: translateY(-60%);
+  font-size: 40px;
   color: #6b4a2b;
-  margin-left: 20px;
-  position: relative;
-  top: -5px;
+  font-weight: 400;
 }
+
 
 
 .date-box {
@@ -1178,6 +1155,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
