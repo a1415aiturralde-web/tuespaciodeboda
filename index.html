@@ -224,44 +224,47 @@
       opacity: 0.8;
       animation: fadeUp 4s ease-in-out;
     }
-        /* MODALES */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--overlay);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
-      z-index: 1000;
-    }
+   /* === MODALES REFINADOS === */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.45); /* oscurecimiento suave */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 1000;
+  backdrop-filter: blur(6px); /* desenfoque solo del fondo */
+}
 
-    .modal.show {
-      opacity: 1;
-      visibility: visible;
-    }
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
 
-    .modal-content {
-      background: rgba(248,229,216,0.95);
-      border-radius: 16px;
-      padding: 30px 25px;
-      max-width: 600px;
-      width: 90%;
-      color: #000;
-      border: 2px solid #000;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      transform: scale(0.9);
-      opacity: 0;
-      transition: all 0.4s ease;
-      position: relative;
-    }
+.modal-content {
+  background: rgba(248,229,216,0.97);
+  border-radius: 16px;
+  padding: 30px 25px;
+  max-width: 600px;
+  width: 90%;
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1001;
+}
 
-    .modal.show .modal-content {
-      transform: scale(1);
-      opacity: 1;
-    }
+.modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
 
     .close-btn {
       position: absolute;
@@ -607,9 +610,41 @@
         });
       }
     });
+      /* === Soporte para botón ATRÁS del móvil === */
+const modales = document.querySelectorAll(".modal");
+
+function closeAllModals() {
+  modales.forEach(modal => modal.classList.remove("show"));
+  history.pushState(null, "", location.href.split("#")[0]);
+  document.body.classList.remove("modal-open");
+}
+
+window.addEventListener("popstate", () => {
+  closeAllModals();
+});
+
+/* Reescribir setupModal para incluir historial */
+function setupModal(openBtnId, modalId, closeBtnId) {
+  const openBtn = document.getElementById(openBtnId);
+  const modal = document.getElementById(modalId);
+  const closeBtn = document.getElementById(closeBtnId);
+
+  openBtn.addEventListener("click", () => {
+    modal.classList.add("show");
+    history.pushState({ modal: modalId }, "", "#" + modalId);
+  });
+
+  closeBtn.addEventListener("click", closeAllModals);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeAllModals();
+  });
+}
+
   </script>
 </body>
 </html>
+
 
 
 
