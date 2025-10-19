@@ -760,7 +760,7 @@ document.addEventListener("DOMContentLoaded", () => {
             closeAllModals();
           }, 3000);
         } else throw new Error("Error en el envío");
-      } catch (err) {
+           } catch (err) {
         successBox.style.display = 'none';
         errorBox.style.display = 'block';
         setTimeout(() => {
@@ -769,6 +769,21 @@ document.addEventListener("DOMContentLoaded", () => {
           submitBtn.disabled = false;
           spinner.remove();
         }, 3000);
+      }
+    });
+  }
+
+          /* === CAMPO ACOMPAÑANTES (mostrar nombres) === */
+  const acompanantesInput = document.getElementById("acompanantes");
+  const rowAcompanantesNombres = document.getElementById("rowAcompanantesNombres");
+
+  if (acompanantesInput && rowAcompanantesNombres) {
+    acompanantesInput.addEventListener("input", () => {
+      const value = parseInt(acompanantesInput.value, 10);
+      if (value > 0) {
+        rowAcompanantesNombres.classList.add("show");
+      } else {
+        rowAcompanantesNombres.classList.remove("show");
       }
     });
   }
@@ -829,6 +844,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
