@@ -287,6 +287,7 @@ header .subtitle { animation-delay: 1.2s; }
     top: 22%;
   }
 
+/* === DÍA DE LA BODA (con fondo decorativo igual que el subtítulo) === */
 .date-box {
   display: flex;
   flex-direction: column;
@@ -294,9 +295,14 @@ header .subtitle { animation-delay: 1.2s; }
   justify-content: center;
   margin: 20px auto;
   padding: 30px 50px;
-  background: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.25)),
+    url("mi_foto_boda_v37.png"); /* 🔹 misma imagen decorativa */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 20px;
-  border: 1px solid rgba(107, 74, 43, 0.3);
+  border: 2px solid rgba(107, 74, 43, 0.3);
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   font-family: 'Cinzel', serif;
   color: #6b4a2b;
@@ -305,18 +311,20 @@ header .subtitle { animation-delay: 1.2s; }
   width: fit-content;
 }
 
+/* texto interior */
 .date-box span {
   font-size: 25px;
   font-weight: 700;
   letter-spacing: 6px;
   color: #6b4a2b;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.6);
 }
 
 .date-box small {
   display: block;
   font-size: 20px;
   font-weight: 400;
-  color: rgba(107, 74, 43, 0.9);
+  color: rgba(107, 74, 43, 0.95);
   margin-top: 5px;
   letter-spacing: 2px;
 }
@@ -1380,6 +1388,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
