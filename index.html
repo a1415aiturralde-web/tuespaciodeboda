@@ -1033,40 +1033,28 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("popstate", closeAllModals);
 
  /* === CUENTA ATRÁS === */
-const weddingDate = new Date("Oct 17, 2026 12:00:00").getTime();
-const daysEl = document.getElementById("days");
-const hoursEl = document.getElementById("hours");
-const minutesEl = document.getElementById("minutes");
-const secondsEl = document.getElementById("seconds");
+  const weddingDate = new Date("Oct 17, 2026 12:00:00").getTime();
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
-
-  if (distance <= 0) {
-    document.getElementById("countdown").innerHTML = "💍 ¡Hoy es el gran día!";
-    return;
-  }
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // === Actualiza valores en pantalla ===
-  if (daysEl) daysEl.textContent = days;
-  if (hoursEl) hoursEl.textContent = hours;
-  if (minutesEl) minutesEl.textContent = minutes;
-  if (secondsEl) secondsEl.textContent = seconds;
-
-  // === Añade la clase de animación para efecto "fade" ===
-  [daysEl, hoursEl, minutesEl, secondsEl].forEach(el => {
-    if (!el) return;
-    el.classList.add("change");
-    setTimeout(() => el.classList.remove("change"), 400);
-  });
-
-}, 1000);
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+    if (distance <= 0) {
+      document.getElementById("countdown").innerHTML = "💍 ¡Hoy es el gran día!";
+      return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (daysEl) daysEl.textContent = days;
+    if (hoursEl) hoursEl.textContent = hours;
+    if (minutesEl) minutesEl.textContent = minutes;
+    if (secondsEl) secondsEl.textContent = seconds;
+  }, 1000);
 
   /* === FORMULARIO ASISTENCIA === */
   const form = document.getElementById("rsvpForm");
@@ -1190,6 +1178,7 @@ setInterval(() => {
   }
 });
 </script>
+
 
 
 
