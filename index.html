@@ -121,14 +121,40 @@ header .subtitle { animation-delay: 1.2s; }
       to { opacity: 1; transform: translateY(0); }
     }
 
-  .title {
-  font-family: 'Cinzel', serif; /* tipografía elegante como la imagen */
-  font-size: 30px;
-  letter-spacing: 3px; /* separación entre letras */
-  color: #6b4a2b; /* tono marrón dorado suave */
+ .title {
+  font-family: 'Cinzel', serif;
+  font-size: 36px;
   font-weight: 700;
-  margin-bottom: 10px;
+  color: #6b4a2b;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 4px;
 }
+
+.title::before,
+.title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 2px;
+  background-color: #6b4a2b;
+  transform: translateY(-50%);
+}
+
+.title::before { left: -80px; }
+.title::after { right: -80px; }
+
+.title::after {
+  content: "♥";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #a00034;
+}
+
 
 
     .subtitle {
@@ -1197,6 +1223,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
