@@ -160,18 +160,24 @@ header .subtitle { animation-delay: 1.2s; }
       max-width: 800px;
       margin: 0 auto;
     }
-  .subtitle-box {
+.subtitle-box {
   text-align: center;
   padding: 25px 30px;
-  border: 2px solid #000; 
+  border: 2px solid #6b4a2b;
   border-radius: 25px;
   max-width: 900px;
   margin: 40px auto;
-  background: #fdfcfb;
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    url("mi_foto_boda_v37.png"); /* 🔹 tu imagen decorativa */
+  background-size: cover;       /* se adapta al recuadro */
+  background-position: center;  /* centrada */
+  background-repeat: no-repeat; /* evita repeticiones */
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   animation: fadeUp 2s ease-in-out;
   box-sizing: border-box;
 }
+
 
 
     /* Cuenta atrás */
@@ -1216,6 +1222,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 
