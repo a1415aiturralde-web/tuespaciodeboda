@@ -934,6 +934,87 @@ html {
   .subtitle-box p + p {
   margin-top: 15px; /* separa solo los párrafos consecutivos */
 }
+  /* === 💻 AJUSTES PARA PANTALLAS GRANDES (ESCRITORIO) === */
+@media (min-width: 901px) {
+
+  body {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    margin-top: 80px;
+  }
+
+  .title {
+    font-size: 52px;
+    letter-spacing: 4px;
+  }
+
+  .title-line {
+    max-width: 320px;
+  }
+
+  .subtitle-box {
+    max-width: 800px;
+    padding: 40px 60px;
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 24px;
+    line-height: 1.8;
+  }
+
+  .boda-foto {
+    max-width: 900px;
+    margin: 60px auto;
+  }
+
+  .date-box {
+    padding: 40px 70px;
+    font-size: 26px;
+  }
+
+  .countdown-section {
+    max-width: 700px;
+    margin: 40px auto 60px;
+  }
+
+  #countdown {
+    gap: 70px;
+  }
+
+  .icon-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1000px;
+    gap: 40px;
+  }
+
+  .icon-button {
+    flex: 1 1 45%;
+    max-width: 400px;
+    padding: 40px 30px;
+  }
+
+  .icon-button span {
+    font-size: 20px;
+  }
+
+  .menu-toggle {
+    top: 30px;
+    right: 50px;
+    transform: scale(1.1);
+  }
+
+  footer {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+}
+
 
 
 
@@ -1458,6 +1539,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 
 
