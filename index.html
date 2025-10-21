@@ -116,59 +116,49 @@ header .subtitle { animation-delay: 1.2s; }
 }
 
 
-.title {
+title { 
   font-family: 'Cinzel', serif;
   font-size: 36px;
   letter-spacing: 3px;
   color: #6b4a2b;
   font-weight: 700;
+  display: inline-block;
   position: relative;
-  display: inline-block;
-  text-align: center;
-  padding: 10px 60px;
-  line-height: 1.2;
-}
-
-/* símbolos ❦ a los lados */
-.title::before,
-.title::after {
-  content: "❦";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 26px;
-  color: #a46a3a;
-  opacity: 0.7;
-}
-
-.title::before {
-  left: 15px;
-}
-
-.title::after {
-  right: 15px;
-}
-
-/* ampersand (&) centrada y elegante */
-.title .amp {
-  font-family: 'Great Vibes', cursive;
-  font-size: 48px;
-  color: #a46a3a;
-  display: inline-block;
-  line-height: 1;
-  margin: 4px 0;
-}
-
-/* línea decorativa debajo del título */
-.title-line {
-  width: 80%;
-  max-width: 250px;
-  height: 2px;
-  background-color: #6b4a2b;
-  margin: 12px auto 0;
-  border-radius: 2px;
-}
-
+  padding-bottom: 10px;
+} 
+  .title::before,
+  .title::after { 
+    content: "❦"; /* símbolo decorativo */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 26px;
+    color: #a46a3a;
+    opacity: 0.7;
+  } 
+    .title::before {
+      left: -30px; 
+    } 
+    .title::after { 
+      right: -30px; 
+    } 
+    title::after, 
+    .title::before  {
+      font-size: 24px;
+      }
+    
+    /* línea decorativa independiente debajo del título */
+    .title::after,
+    .title::before { 
+      /* mantenemos los símbolos ❦ arriba */ 
+    } 
+    .title-line {
+      width: 80%; /* ligeramente más corto que el texto */
+      max-width: 250px; /* se adapta a pantallas pequeñas */
+      height: 2px; 
+      background-color: #6b4a2b; /* mismo tono que el texto */ 
+      margin: 12px auto 0; /* espacio justo debajo del título */
+      border-radius: 2px; }
 
 
     .subtitle {
@@ -988,14 +978,15 @@ html {
   <!-- 💫 CONTENEDOR PRINCIPAL -->
   <div id="page-wrapper">
 
-  <header>
- <h1 class="title">
-  Alejandro<br>
-  <span class="amp">&amp;</span><br>
-  Andrea
-</h1>
-
+ <header>
+  <h1 class="title">
+    Alejandro<br>
+    &amp;<br>
+    Andrea
+  </h1>
 </header>
+
+
 
     <!-- Cuenta atrás -->
     <section class="countdown-section">
@@ -1471,6 +1462,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 
 
