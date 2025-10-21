@@ -1220,26 +1220,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* === CONFIGURADOR DE MODALES (seguro) === */
-  function setupModal(openBtnId, modalId, closeBtnId) {
-    const openBtn = document.getElementById(openBtnId);
-    const modal = document.getElementById(modalId);
-    const closeBtn = document.getElementById(closeBtnId);
-    if (!openBtn || !modal || !closeBtn) return;
+ function setupModal(openBtnId, modalId, closeBtnId) {
+  const openBtn = document.getElementById(openBtnId);
+  const modal = document.getElementById(modalId);
+  const closeBtn = document.getElementById(closeBtnId);
+  const menuToggle = document.getElementById("menuToggle"); // 👈 referencia a la hamburguesa
+  if (!openBtn || !modal || !closeBtn) return;
 
-    openBtn.addEventListener("click", () => {
-      modal.classList.add("show");
-      if (pageWrapper) pageWrapper.classList.add("blurred");
-      history.pushState({ modal: modalId }, "", "#" + modalId);
-    });
+  openBtn.addEventListener("click", () => {
+    modal.classList.add("show");
+    if (pageWrapper) pageWrapper.classList.add("blurred");
+    if (menuToggle) menuToggle.style.display = "none"; // 👇 oculta la hamburguesa
+    history.pushState({ modal: modalId }, "", "#" + modalId);
+  });
 
-    closeBtn.addEventListener("click", closeAllModals);
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeAllModals();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeAllModals();
-    });
-  }
+  closeBtn.addEventListener("click", () => {
+    closeAllModals();
+    if (menuToggle) menuToggle.style.display = "block"; // 👇 vuelve a mostrarla
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeAllModals();
+      if (menuToggle) menuToggle.style.display = "block";
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeAllModals();
+      if (menuToggle) menuToggle.style.display = "block";
+    }
+  });
+}
+
 
   /* === CONFIGURAR TODOS === */
   setupModal("asistenciaBtn", "asistenciaModal", "closeAsistencia");
@@ -1444,6 +1458,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 
 
