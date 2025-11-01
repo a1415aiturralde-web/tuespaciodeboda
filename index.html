@@ -32,25 +32,26 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background-color: #f6f4ef; /* blanco sucio */
+  background-color: #faf8f5; /* 🔹 blanco más limpio y luminoso */
 
-  /* viñeta + ruido sutil */
+  /* viñeta + ruido muy sutil */
   background-image:
-    radial-gradient(1100px 700px at 50% -10%, rgba(0,0,0,0.06), rgba(0,0,0,0) 60%),
+    radial-gradient(1100px 700px at 50% -10%, rgba(0,0,0,0.04), rgba(0,0,0,0) 60%),
     url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>\
 <filter id='n'>\
 <feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/>\
 <feColorMatrix type='saturate' values='0'/>\
-<feComponentTransfer><feFuncA type='table' tableValues='0 0.07'/></feComponentTransfer>\
+<feComponentTransfer><feFuncA type='table' tableValues='0 0.045'/></feComponentTransfer>\
 </filter>\
 <rect width='100%' height='100%' filter='url(#n)'/>\
 </svg>");
   background-repeat: no-repeat, repeat;
-  background-size: cover, 300px 300px; /* tamaño del “grano” */
+  background-size: cover, 300px 300px;
   background-attachment: fixed, scroll;
   background-blend-mode: multiply, normal;
 }
+
 
 
     @keyframes fadeIn {
@@ -1470,6 +1471,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 
 
