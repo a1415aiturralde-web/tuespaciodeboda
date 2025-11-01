@@ -134,11 +134,12 @@ header .subtitle { animation-delay: 1.2s; }
 /* Imagen de título con ramas */
 .title-img {
   display: block;
-  width: 90%;           /* Ajusta el ancho relativo */
-  max-width: 380px;     /* Tamaño máximo similar al título */
+  width: 95%;           /* Ajusta el ancho relativo */
+  max-width: 420px;     /* Tamaño máximo similar al título */
   margin: 0 auto 12px;  /* centrado y pequeño margen inferior */
   opacity: 0.95;        /* misma suavidad visual */
-  animation: textFadeIn 2s ease forwards; /* mantiene la animación */
+ transform: translateY(8px) scale(0.97);
+  animation: fadeZoom 1.2s ease-out 200ms forwards; /* animación suave y elegante */
 }
 
 @media (max-width: 600px) {
@@ -1438,6 +1439,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 
 
