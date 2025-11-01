@@ -34,8 +34,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #faf8f5; /* blanco más limpio y luminoso */
-      /* viñeta + ruido muy sutil */
+      background-color: #faf8f5;
       background-image:
         radial-gradient(1100px 700px at 50% -10%, rgba(0,0,0,0.04), rgba(0,0,0,0) 60%),
         url("data:image/svg+xml;utf8,\
@@ -53,18 +52,11 @@
       background-blend-mode: multiply, normal;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
 
     /* Fondo principal que se desenfoca */
     #page-wrapper { transition: filter 0.6s ease, opacity 0.6s ease; }
-    #page-wrapper.blurred {
-      filter: blur(6px) brightness(0.8);
-      pointer-events: none;
-      user-select: none;
-    }
+    #page-wrapper.blurred { filter: blur(6px) brightness(0.8); pointer-events: none; user-select: none; }
 
     header {
       text-align: center;
@@ -77,27 +69,10 @@
       animation: fadeUp 2s ease-in-out;
     }
 
-    @keyframes drawBorder {
-      0% { border-color: transparent; box-shadow: 0 0 0 rgba(0,0,0,0); }
-      30% { border-color: #6b4a2b; box-shadow: 0 0 0 rgba(0,0,0,0); }
-      100% { border-color: #6b4a2b; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-    }
+    @keyframes textFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
 
-    @keyframes textFadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    header .title,
-    header .subtitle {
-      opacity: 0;
-      animation: textFadeIn 2s ease forwards;
-    }
+    header .title, header .subtitle { opacity: 0; animation: textFadeIn 2s ease forwards; }
     header .title { animation-delay: 0.5s; }
     header .subtitle { animation-delay: 1.2s; }
 
@@ -149,114 +124,41 @@
     }
     .subtitle-box p + p { margin-top: 15px; }
 
-    /* === CUENTA ATRÁS (centrada y equilibrada) === */
-    .countdown-section {
-      text-align: center;
-      margin: 20px auto 40px;
-      padding: 20px;
-      max-width: 600px;
-    }
+    /* === CUENTA ATRÁS === */
+    .countdown-section { text-align: center; margin: 20px auto 40px; padding: 20px; max-width: 600px; }
 
     #countdown {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 50px;
-      margin-top: 15px;
-      position: relative;
+      display: flex; justify-content: center; align-items: flex-start; gap: 50px;
+      margin-top: 15px; position: relative;
     }
 
-    .time-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      font-family: 'Cinzel', serif;
-      color: #000;
-      text-align: center;
-    }
-
-    .time-box span {
-      font-size: 36px;
-      font-weight: 700;
-      line-height: 1.1;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
+    .time-box { display: flex; flex-direction: column; align-items: center; position: relative; font-family: 'Cinzel', serif; color: #000; text-align: center; }
+    .time-box span { font-size: 36px; font-weight: 700; line-height: 1.1; transition: opacity 0.4s ease, transform 0.4s ease; }
     .time-box span.change { opacity: 0.6; transform: scale(1.05); }
+    .time-box small { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; margin-top: 6px; color: #000; }
+    .time-box:not(:last-child)::after { content: "·"; position: absolute; right: -30px; top: 25%; transform: translateY(-50%); font-size: 28px; color: #000; font-weight: 400; }
 
-    .time-box small {
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-top: 6px;
-      color: #000;
-    }
-
-    .time-box:not(:last-child)::after {
-      content: "·";
-      position: absolute;
-      right: -30px;
-      top: 25%;
-      transform: translateY(-50%);
-      font-size: 28px;
-      color: #000;
-      font-weight: 400;
-    }
-
-    /* === SOLO ajustes del contador en móvil === */
     @media (max-width: 600px) {
       header { padding: 25px 15px; border-radius: 20px; max-width: 90%; }
-
       #countdown { gap: 30px; }
       .time-box span { font-size: 28px; }
       .time-box small { font-size: 11px; letter-spacing: 1px; }
       .time-box:not(:last-child)::after { right: -18px; font-size: 22px; top: 22%; }
-    } /* ✅ cierre correcto del media query */
+    }
 
-    /* === DÍA DE LA BODA (recuadro con título + fecha dentro) === */
+    /* === RECUADRO FECHA === */
     .date-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      margin: 20px auto;
-      padding: 28px 50px; /* alto para incluir el h2 */
-      gap: 10px;
-
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      margin: 20px auto; padding: 28px 50px; gap: 10px;
       background:
         linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.25)),
         url("mi_foto_boda_v41.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-
-      border-radius: 20px;
-      border: 2px solid #000;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-
-      font-family: 'Cinzel', serif;
-      color: #000;
-      text-align: center;
-      letter-spacing: 3px;
-      width: fit-content;
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      border-radius: 20px; border: 2px solid #000; box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      font-family: 'Cinzel', serif; color: #000; text-align: center; letter-spacing: 3px; width: fit-content;
     }
-    .date-box .join {
-      margin: 0;
-      font-family: 'Cinzel', serif;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #000;
-    }
-    .date-box span {
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: 6px;
-      color: #000;
-      text-shadow: 1px 1px 3px rgba(255,255,255,0.6);
-    }
+    .date-box .join { margin: 0; font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700; letter-spacing: 2px; color: #000; }
+    .date-box span { font-size: 26px; font-weight: 700; letter-spacing: 6px; color: #000; text-shadow: 1px 1px 3px rgba(255,255,255,0.6); }
 
     @media (max-width: 600px) {
       .date-box { padding: 24px 32px; gap: 8px; }
@@ -265,60 +167,25 @@
     }
 
     .wedding-day-title {
-      font-family: 'Cinzel', serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: #000;
-      text-align: center;
-      letter-spacing: 3px;
-      margin-top: 10px;
-      margin-bottom: 25px;
-      text-transform: uppercase;
+      font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700; color: #000; text-align: center;
+      letter-spacing: 3px; margin-top: 10px; margin-bottom: 25px; text-transform: uppercase;
     }
 
-    /* === CONTENEDOR DE LOS BOTONES EN COLUMNA === */
-    .icon-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
-      margin: 60px auto;
-      max-width: 650px;
-      animation: fadeUp 2s ease-in-out;
-    }
-
+    /* === BOTONES DE ACCESO === */
+    .icon-container { display: flex; flex-direction: column; align-items: center; gap: 25px; margin: 60px auto; max-width: 650px; animation: fadeUp 2s ease-in-out; }
     .icon-button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 30px 20px;
-      border-radius: 20px;
-      border: 2px solid #000;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 30px 20px;
+      border-radius: 20px; border: 2px solid #000;
       background:
         linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.25)),
         url("mi_foto_boda_v41.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      background-size: cover; background-position: center; background-repeat: no-repeat;
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; text-align: center;
     }
     .icon-button:hover { transform: translateY(-6px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-
     .icon-img { width: 70px; height: auto; margin-bottom: 10px; }
-
-    .icon-button span {
-      font-family: 'Cinzel', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--garnet);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+    .icon-button span { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--garnet); letter-spacing: 2px; text-transform: uppercase; }
 
     @media (max-width: 600px) {
       .icon-container { max-width: 90%; }
@@ -326,47 +193,19 @@
       .icon-button span { font-size: 16px; }
     }
 
-    /* Foto */
-    .boda-foto {
-      width: 100%;
-      max-width: 900px;
-      margin: 50px auto;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-      animation: fadeUp 4s ease-in-out;
-    }
+    /* Foto y pie */
+    .boda-foto { width: 100%; max-width: 900px; margin: 50px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.2); animation: fadeUp 4s ease-in-out; }
     .boda-foto img { width: 100%; display: block; }
-
-    /* Logo y final */
     .logo-fecha { text-align: center; margin: 30px 0; animation: fadeUp 4s ease-in-out; }
     .logo-fecha img { width: 140px; opacity: 0.95; }
-
-    .mensaje-final {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      color: #000;
-      margin: 40px 20px;
-      line-height: 1.6;
-      animation: fadeUp 4s ease-in-out;
-      font-weight: 700;
-    }
+    .mensaje-final { text-align: center; font-family: 'Playfair Display', serif; font-size: 18px; color: #000; margin: 40px 20px; line-height: 1.6; animation: fadeUp 4s ease-in-out; font-weight: 700; }
     footer { text-align: center; padding: 20px; font-size: 13px; color: #000; opacity: 0.8; animation: fadeUp 4s ease-in-out; font-weight: 700; }
 
-    /* === MODALES (ajustados) === */
+    /* === MODALES === */
     .modal {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0,0,0,0.45);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
-      z-index: 10000; /* por encima de la hamburguesa y todo */
-      backdrop-filter: blur(6px);
+      position: fixed; inset: 0; display: flex; justify-content: center; align-items: center;
+      background: rgba(0,0,0,0.45); opacity: 0; visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease; z-index: 10000; backdrop-filter: blur(6px);
     }
     .modal.show { opacity: 1; visibility: visible; }
 
@@ -374,22 +213,10 @@
       background:
         linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.25)),
         url("mi_foto_boda_v41.png");
-      border-radius: 16px;
-      padding: 24px 22px;              /* un poco menos para que no se vean gigantes */
-      max-width: 560px;                /* control de anchura en desktop */
-      width: 92%;                      /* fluido */
-      max-height: 85vh;
-      overflow-y: auto;
-      color: #000;
-      border: 2px solid #000;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      transform: scale(0.96);
-      opacity: 0;
-      transition: all 0.35s ease;
-      position: relative;
-      z-index: 10001;
-      scrollbar-width: thin;
-      scrollbar-color: var(--garnet) #f8f1e3;
+      border-radius: 16px; padding: 24px 22px; max-width: 560px; width: 92%; max-height: 85vh; overflow-y: auto;
+      color: #000; border: 2px solid #000; box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      transform: scale(0.96); opacity: 0; transition: all 0.35s ease; position: relative; z-index: 10001;
+      scrollbar-width: thin; scrollbar-color: var(--garnet) #f8f1e3;
     }
     .modal.show .modal-content { transform: scale(1); opacity: 1; }
 
@@ -397,49 +224,32 @@
     .modal-content::-webkit-scrollbar-track { background: #f8f1e3; border-radius: 10px; }
     .modal-content::-webkit-scrollbar-thumb { background-color: var(--garnet); border-radius: 10px; }
 
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
+    .close-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; cursor: pointer; }
     .close-btn img { width: 28px; }
 
-    /* Contenido específico Asistencia */
-    #asistenciaModal .asistencia-content {
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.25)),
-        url("mi_foto_boda_v41.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 16px;
-      max-width: 560px;
-      width: 92%;
-      max-height: 90%;
-      overflow-y: auto;
-      position: relative;
-      padding: 20px 18px;
-      border: 2px solid #000;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      transform: scale(0.96);
-      opacity: 0;
-      transition: all 0.35s ease;
+    /* === Títulos y textos dentro de modales === */
+    .modal-content h3.modal-title {
+      font-family: 'Cinzel', serif; font-size: 26px; color: var(--olive); text-align: center; font-weight: 700;
+      margin-top: 10px; margin-bottom: 18px; letter-spacing: 2px;
     }
-    .modal.show .asistencia-content { transform: scale(1); opacity: 1; }
+    .modal-content h4.modal-subtitle {
+      font-family: 'Playfair Display', serif; font-size: 22px; color: var(--garnet); text-align: center; font-weight: 700;
+      margin-top: 16px; margin-bottom: 12px; letter-spacing: 1px;
+    }
+    .modal-content p {
+      font-family: 'Lora', serif; font-size: 18px; color: #2b2b2b; text-align: center; line-height: 1.7; font-weight: 400; margin-bottom: 14px;
+    }
+    .modal-content a { color: var(--garnet); font-weight: 600; text-decoration: none; }
+    .modal-content a:hover { text-decoration: underline; }
+
+    /* === Estilos específicos Asistencia (unificado a .modal-content) === */
+    #asistenciaModal .asistencia-content { /* solo añadimos modificadores si hace falta; ya hereda .modal-content */ }
 
     .asistencia-title { text-align: center; margin-bottom: 12px; }
     .asistencia-title img { max-width: 100px; height: auto; display: inline-block; }
     .asistencia-title h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--olive); /* verde oliva para “Cuestionario de asistencia” */
-      text-align: center;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;
+      color: var(--olive); text-align: center; margin-top: 10px; margin-bottom: 10px;
     }
 
     /* Formularios */
@@ -462,9 +272,7 @@
     }
     .chip input { position: absolute; opacity: 0; pointer-events: none; }
     .chip span { display: inline-block; transition: all 0.2s ease-in-out; }
-    .chip input:checked + span {
-      background: var(--brand); color: #fff; border-color: var(--brand); padding: 12px 22px; transform: scale(1.05);
-    }
+    .chip input:checked + span { background: var(--brand); color: #fff; border-color: var(--brand); padding: 12px 22px; transform: scale(1.05); }
 
     .actions { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 20px; }
     .actions button {
@@ -473,112 +281,52 @@
     }
     .actions button:hover { filter: brightness(0.9); transform: translateY(-2px); }
 
-    .modal .asistencia-content,
-    .modal .traslado-content,
-    .modal .recuerdos-content,
-    .modal .ubicacion-content {
-      opacity: 0;
-      transform: scale(0.96) translateY(-6px);
-      transition: opacity 0.35s ease, transform 0.35s ease;
+    /* Animación de entrada común */
+    .modal .asistencia-content, .modal .traslado-content, .modal .recuerdos-content, .modal .ubicacion-content {
+      opacity: 0; transform: scale(0.96) translateY(-6px); transition: opacity 0.35s ease, transform 0.35s ease;
     }
-    .modal.show .asistencia-content,
-    .modal.show .traslado-content,
-    .modal.show .recuerdos-content,
-    .modal.show .ubicacion-content {
-      opacity: 1;
-      transform: scale(1) translateY(0);
+    .modal.show .asistencia-content, .modal.show .traslado-content, .modal.show .recuerdos-content, .modal.show .ubicacion-content {
+      opacity: 1; transform: scale(1) translateY(0);
     }
 
-    /* Textos de modales (unificados) */
-    #trasladoModal .modal-content p,
-    #recuerdosModal .modal-content p,
-    #ubicacionModal .modal-content p {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      color: #000;
-      text-align: center;
-      line-height: 1.6;
-      font-weight: 700;
+    /* === *** RINCÓN DE LOS RECUERDOS – estilos recuperados *** === */
+    #recuerdosForm { text-align: center; }
+    #recuerdosForm input[type="file"] { display: none; } /* oculta el input nativo */
+    .file-label {
+      display: inline-block; padding: 10px 18px; border-radius: 999px;
+      border: 2px solid var(--garnet); background: transparent; color: var(--garnet);
+      font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.3s ease;
     }
-
-    /* Títulos de todos los modales en verde oliva */
-    .modal-content h3.modal-title {
-      font-family: 'Cinzel', serif;
-      font-size: 26px;
-      color: var(--olive);
-      text-align: center;
-      font-weight: 700;
-      margin-top: 10px;
-      margin-bottom: 18px;
-      letter-spacing: 2px;
+    .file-label:hover { background: var(--garnet); color: #fff; transform: translateY(-2px); }
+    #recuerdosMsg { margin-top: 12px; font-weight: 600; color: #000; }
+    #recuerdosForm button {
+      display: inline-block; margin-top: 15px; padding: 12px 18px; border: 0; border-radius: 999px;
+      background: var(--garnet); color: #fff; font-weight: 600; font-size: 15px; cursor: pointer;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2); transition: all 0.3s ease;
     }
-
-    .modal-content h4.modal-subtitle {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      color: var(--garnet);
-      text-align: center;
-      font-weight: 700;
-      margin-top: 16px;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-    }
-
-    .modal-content p {
-      font-family: 'Lora', serif;
-      font-size: 18px;
-      color: #2b2b2b;
-      text-align: center;
-      line-height: 1.7;
-      font-weight: 400;
-      margin-bottom: 14px;
-    }
-
-    .modal-content a { color: var(--garnet); font-weight: 600; text-decoration: none; }
-    .modal-content a:hover { text-decoration: underline; }
+    #recuerdosForm button:hover { filter: brightness(0.9); transform: translateY(-2px); }
 
     /* === BOTÓN HAMBURGUESA === */
     .menu-toggle {
-      position: fixed;
-      top: 20px;
-      right: 25px;
-      font-size: 26px;
-      color: #6b4a2b;
-      background: rgba(255, 255, 255, 0.95);
-      border: 2px solid #6b4a2b;
-      border-radius: 10px;
-      padding: 8px 12px;
-      cursor: pointer;
-      z-index: 5000; /* por debajo del modal (10000) */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: background 0.3s ease, transform 0.2s ease;
+      position: fixed; top: 20px; right: 25px; font-size: 26px; color: #6b4a2b;
+      background: rgba(255, 255, 255, 0.95); border: 2px solid #6b4a2b; border-radius: 10px;
+      padding: 8px 12px; cursor: pointer; z-index: 5000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: background 0.3s ease, transform 0.2s ease;
     }
     .menu-toggle:hover { background: #f8f1e3; transform: scale(1.05); }
 
     /* === MENÚ DESPLEGABLE === */
     .menu-dropdown {
-      position: fixed;
-      top: 65px;
-      right: 25px;
-      background: rgba(255, 255, 255, 0.97);
-      border: 2px solid #6b4a2b;
-      border-radius: 10px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-      padding: 10px 0;
-      width: 180px;
-      display: none;             /* ✅ oculto por defecto */
-      flex-direction: column;
-      z-index: 4999;             /* justo debajo del botón */
+      position: fixed; top: 65px; right: 25px; background: rgba(255, 255, 255, 0.97);
+      border: 2px solid #6b4a2b; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      padding: 10px 0; width: 180px; display: none; flex-direction: column; z-index: 4999;
       animation: slideDown 0.3s ease forwards;
     }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
     .menu-dropdown ul { list-style: none; margin: 0; padding: 0; }
     .menu-dropdown li { text-align: center; border-bottom: 1px solid rgba(107, 74, 43, 0.2); }
     .menu-dropdown li:last-child { border-bottom: none; }
-    .menu-dropdown a {
-      display: block; padding: 10px; color: #6b4a2b; font-family: 'Cinzel', serif; text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
+    .menu-dropdown a { display: block; padding: 10px; color: #6b4a2b; font-family: 'Cinzel', serif; text-decoration: none; transition: background 0.2s ease, color 0.2s ease; }
     .menu-dropdown a:hover { background: #f8f1e3; color: var(--garnet); }
     .menu-dropdown.show { display: flex; }
 
@@ -604,9 +352,7 @@
   <!-- 💫 CONTENEDOR PRINCIPAL -->
   <div id="page-wrapper">
     <header>
-      <h1 class="title">
-        Alejandro<br>&<br>Andrea
-      </h1>
+      <h1 class="title">Alejandro<br>&<br>Andrea</h1>
       <div class="title-line"></div>
     </header>
 
@@ -647,19 +393,19 @@
 
     <!-- Accesos -->
     <div class="icon-container">
-      <button class="icon-button" id="ubicacionBtn">
+      <button type="button" class="icon-button" id="ubicacionBtn">
         <img src="mi_foto_boda_v33.png" alt="Ubicación" class="icon-img">
         <span>Ubicación</span>
       </button>
-      <button class="icon-button" id="asistenciaBtn">
+      <button type="button" class="icon-button" id="asistenciaBtn">
         <img src="mi_foto_boda_v26.png" alt="Asistencia" class="icon-img">
         <span>Asistencia</span>
       </button>
-      <button class="icon-button" id="trasladoBtn">
+      <button type="button" class="icon-button" id="trasladoBtn">
         <img src="mi_foto_boda_v27.png" alt="Traslado" class="icon-img">
         <span>Traslado</span>
       </button>
-      <button class="icon-button" id="recuerdosBtn">
+      <button type="button" class="icon-button" id="recuerdosBtn">
         <img src="recuerdos.png" alt="Recuerdos" class="icon-img">
         <span>Recuerdos</span>
       </button>
@@ -678,7 +424,7 @@
 
   <!-- MODAL ASISTENCIA -->
   <div id="asistenciaModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="asistenciaTitle">
-    <div class="asistencia-content">
+    <div class="modal-content asistencia-content">
       <button id="closeAsistencia" aria-label="Cerrar formulario" class="close-btn">
         <img src="mi_foto_boda_v36.png" alt="Cerrar">
       </button>
@@ -712,8 +458,7 @@
 
           <div class="row" id="rowAcompanantesNombres">
             <label for="acompanantesNombres">Nombre y apellidos de los acompañantes</label>
-            <input id="acompanantesNombres" name="acompanantesNombres" type="text"
-              placeholder="Ej. Juan Gómez, María López..." />
+            <input id="acompanantesNombres" name="acompanantesNombres" type="text" placeholder="Ej. Juan Gómez, María López..." />
           </div>
 
           <div class="row">
@@ -727,8 +472,7 @@
 
         <div class="row">
           <label for="alergias">¿Tienes alguna alergia, intolerancia o preferencia alimentaria?</label>
-          <input id="alergias" name="alergias" type="text"
-            placeholder="Ej. sin gluten, frutos secos, vegetariano..." />
+          <input id="alergias" name="alergias" type="text" placeholder="Ej. sin gluten, frutos secos, vegetariano..." />
         </div>
 
         <div class="row">
@@ -788,9 +532,7 @@
           para compartir junto a nosotros este momento tan especial.
         </p>
         <p>
-          📍 <a href="https://www.google.com/maps/search/?api=1&query=42.819637,-1.641684" target="_blank">
-            Ver ubicación en Google Maps
-          </a>
+          📍 <a href="https://www.google.com/maps/search/?api=1&query=42.819637,-1.641684" target="_blank">Ver ubicación en Google Maps</a>
         </p>
 
         <br>
@@ -802,9 +544,7 @@
           la fiesta hasta el final.
         </p>
         <p>
-          📍 <a href="https://www.google.com/maps/search/?api=1&query=42.840699,-1.581877" target="_blank">
-            Ver ubicación en Google Maps
-          </a>
+          📍 <a href="https://www.google.com/maps/search/?api=1&query=42.840699,-1.581877" target="_blank">Ver ubicación en Google Maps</a>
         </p>
       </div>
     </div>
@@ -846,7 +586,6 @@
       modales.forEach(modal => modal.classList.remove("show"));
       if (pageWrapper) pageWrapper.classList.remove("blurred");
       history.pushState(null, "", location.href.split("#")[0]);
-      // volver a mostrar hamburguesa al cerrar
       const menuToggle = document.getElementById("menuToggle");
       if (menuToggle) menuToggle.style.display = "block";
     }
@@ -865,21 +604,13 @@
         history.pushState({ modal: modalId }, "", "#" + modalId);
       });
 
-      closeBtn.addEventListener("click", () => {
-        closeAllModals();
-      });
+      closeBtn.addEventListener("click", () => { closeAllModals(); });
 
       modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          closeAllModals();
-        }
+        if (e.target === modal) { closeAllModals(); }
       });
 
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeAllModals();
-        }
-      });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeAllModals(); } });
     }
 
     /* Configurar todos */
@@ -1043,7 +774,6 @@
     const menuDropdown = document.getElementById("menuDropdown");
 
     if (menuToggle && menuDropdown) {
-      // aseguramos estado inicial correcto
       menuDropdown.classList.remove("show");
       menuToggle.style.display = "block";
 
@@ -1052,14 +782,10 @@
         menuDropdown.classList.toggle("show");
       });
 
-      // Oculta el menú al hacer clic en un enlace
       menuDropdown.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          menuDropdown.classList.remove("show");
-        });
+        link.addEventListener("click", () => { menuDropdown.classList.remove("show"); });
       });
 
-      // Cierra si se hace clic fuera
       document.addEventListener("click", (e) => {
         if (!menuDropdown.contains(e.target) && !menuToggle.contains(e.target)) {
           menuDropdown.classList.remove("show");
@@ -1086,8 +812,6 @@
   </script>
 </body>
 </html>
-
-
 
 
 
