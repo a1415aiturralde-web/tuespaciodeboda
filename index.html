@@ -131,23 +131,15 @@ header .subtitle { animation-delay: 1.2s; }
 }
 
 
-/* Imagen de título con ramas */
-.title-img {
-  display: block;
-  width: 95%;           /* Ajusta el ancho relativo */
-  max-width: 420px;     /* Tamaño máximo similar al título */
-  margin: 0 auto 12px;  /* centrado y pequeño margen inferior */
-  opacity: 0.95;        /* misma suavidad visual */
- transform: translateY(8px) scale(0.97);
-  animation: fadeZoom 1.2s ease-out 200ms forwards; /* animación suave y elegante */
-}
-
-@media (max-width: 600px) {
-  .title-img {
-    max-width: 280px;   /* tamaño más pequeño en móvil */
-  }
-
-
+.title { font-family: 'Cinzel', serif;
+        font-size: 36px;
+        letter-spacing: 3px;
+        color: #000;
+        font-weight: 700;
+        display: inline-block;
+        position: relative;
+        padding-bottom: 10px; }
+    
     .subtitle {
      font-family: 'Playfair Display', serif;
       font-size: 22px;
@@ -948,7 +940,11 @@ html {
   <div id="page-wrapper">
 
    <header>
-<img src="mi_foto_boda_v40.png" alt="Alejandro & Andrea" class="title-img">
+<h1 class="title">
+  Alejandro<br>
+  &<br>
+  Andrea
+</h1>
 <div class="title-line"></div>
 
 </header>
@@ -1441,6 +1437,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 
 
