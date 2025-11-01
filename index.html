@@ -332,6 +332,21 @@
 
     /* Scroll suave */
     html { scroll-behavior: smooth; }
+    /* === Campo acompañantes animado === */
+#rowAcompanantesNombres {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-10px);
+  overflow: hidden;
+  transition: opacity 0.8s ease, max-height 0.8s ease, transform 0.8s ease;
+}
+
+#rowAcompanantesNombres.show {
+  opacity: 1;
+  max-height: 200px;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 
@@ -812,6 +827,7 @@
   </script>
 </body>
 </html>
+
 
 
 
