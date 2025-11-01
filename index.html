@@ -477,10 +477,16 @@
             <input id="acompanantes" name="acompanantes" type="number" min="0" max="10" value="0" />
           </div>
 
-          <div class="row" id="rowAcompanantesNombres">
-            <label for="acompanantesNombres">Nombre y apellidos de los acompañantes</label>
-            <input id="acompanantesNombres" name="acompanantesNombres" type="text" placeholder="Ej. Juan Gómez, María López..." />
-          </div>
+      <div class="row" id="rowAcompanantesNombres">
+  <label for="acompanantesNombres">Nombre y apellidos de los acompañantes</label>
+  <input id="acompanantesNombres" name="acompanantesNombres" type="text"
+         placeholder="Ej. Juan Gómez, María López..." />
+
+  <!-- Espejos ocultos para compatibilidad con el GAS/Sheet -->
+  <input type="hidden" name="acompanantes_nombres" id="acompanantes_nombres_mirror">
+  <input type="hidden" name="nombres_acompanantes" id="nombres_acompanantes_mirror">
+</div>
+
 
           <div class="row">
             <label>¿Utilizarás el servicio de autobús?</label>
@@ -833,6 +839,7 @@
   </script>
 </body>
 </html>
+
 
 
 
