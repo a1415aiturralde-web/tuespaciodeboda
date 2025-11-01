@@ -140,77 +140,70 @@ header .subtitle { animation-delay: 1.2s; }
   display: inline-block;
   position: relative;
   padding-bottom: 10px;
-} 
+  padding-top: 44px;      /* 👈 deja espacio para las ramas */
+  z-index: 2;             /* el texto queda por encima */
+}
+
 .title::before,
 .title::after {
-  content: none;
-}
-
-/* Contenedor relativo para ubicar las ramas */
-header {
-  position: relative;
-}
-
-/* Ramas de olivo */
-header .olive {
+  content: "";
   position: absolute;
-  top: -10px; /* 🔹 súbelo o bájalo según lo quieras */
-  width: 140px;
-  height: 70px;
+  top: -14px;             /* sube/baja el paraguas */
+  width: 190px;           /* largo de cada rama */
+  height: 80px;
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.9;
   pointer-events: none;
-  z-index: 1;
+  opacity: 0.95;
+  z-index: 1;             /* 👈 ramas por detrás del texto (no lo tapan) */
 }
 
-/* Izquierda */
-header .olive.left {
-  left: -40px;
+/* Rama izquierda: anclada al centro por la derecha */
+.title::before {
+  right: 50%;
+  margin-right: -6px;     /* pequeño solape en el centro */
   background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 80'>\
-<g fill='none' stroke='%236b4a2b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'>\
-  <path d='M150,70 C110,40 75,35 20,45'/>\
-  <path d='M35,48 c-8,-2 -18,1 -25,7 c7,2 17,0 25,-7z' fill='%23a46a3a'/>\
-  <path d='M55,44 c-7,-3 -17,-1 -24,4 c7,3 16,2 24,-4z' fill='%23a46a3a'/>\
-  <path d='M75,42 c-7,-3 -16,-2 -23,3 c7,3 15,3 23,-3z' fill='%23a46a3a'/>\
-  <path d='M95,43 c-6,-3 -15,-3 -21,2 c6,3 14,4 21,-2z' fill='%23a46a3a'/>\
-  <path d='M115,50 c-6,-4 -15,-5 -20,0 c6,4 13,6 20,0z' fill='%23a46a3a'/>\
-</g></svg>");
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 80'>\
+  <g fill='none' stroke='%236b4a2b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'>\
+    <path d='M185,68 C145,28 95,22 5,40'/>\
+    <path d='M35,50 l-18,-8 M58,44 l-16,-10 M80,38 l-14,-10 M104,34 l-12,-10 M126,35 l-10,-9'/>\
+  </g>\
+  <g fill='%23a46a3a' opacity='0.9'>\
+    <ellipse cx='70' cy='40' rx='5' ry='3'/>\
+    <ellipse cx='110' cy='34' rx='5' ry='3'/>\
+  </g>\
+</svg>");
 }
 
-/* Derecha (la misma rama espejada) */
-header .olive.right {
-  right: -40px;
+/* Rama derecha: espejo, anclada al centro por la izquierda */
+.title::after {
+  left: 50%;
+  margin-left: -6px;
   transform: scaleX(-1);
   background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 80'>\
-<g fill='none' stroke='%236b4a2b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'>\
-  <path d='M150,70 C110,40 75,35 20,45'/>\
-  <path d='M35,48 c-8,-2 -18,1 -25,7 c7,2 17,0 25,-7z' fill='%23a46a3a'/>\
-  <path d='M55,44 c-7,-3 -17,-1 -24,4 c7,3 16,2 24,-4z' fill='%23a46a3a'/>\
-  <path d='M75,42 c-7,-3 -16,-2 -23,3 c7,3 15,3 23,-3z' fill='%23a46a3a'/>\
-  <path d='M95,43 c-6,-3 -15,-3 -21,2 c6,3 14,4 21,-2z' fill='%23a46a3a'/>\
-  <path d='M115,50 c-6,-4 -15,-5 -20,0 c6,4 13,6 20,0z' fill='%23a46a3a'/>\
-</g></svg>");
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 80'>\
+  <g fill='none' stroke='%236b4a2b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'>\
+    <path d='M185,68 C145,28 95,22 5,40'/>\
+    <path d='M35,50 l-18,-8 M58,44 l-16,-10 M80,38 l-14,-10 M104,34 l-12,-10 M126,35 l-10,-9'/>\
+  </g>\
+  <g fill='%23a46a3a' opacity='0.9'>\
+    <ellipse cx='70' cy='40' rx='5' ry='3'/>\
+    <ellipse cx='110' cy='34' rx='5' ry='3'/>\
+  </g>\
+</svg>");
 }
 
-/* Responsive: más pequeñas en móvil */
+/* Responsive: paraguas algo más compacto en móvil */
 @media (max-width: 600px) {
-  header .olive {
-    width: 110px;
-    height: 55px;
-    top: -6px;
+  .title { padding-top: 36px; }
+  .title::before,
+  .title::after {
+    top: -10px;
+    width: 160px;
+    height: 68px;
   }
-  header .olive.left  { left: -20px; }
-  header .olive.right { right: -20px; }
 }
     
-    /* línea decorativa independiente debajo del título */
-    .title::after,
-    .title::before { 
-      /* mantenemos los símbolos ❦ arriba */ 
-    } 
     .title-line {
       width: 80%; /* ligeramente más corto que el texto */
       max-width: 250px; /* se adapta a pantallas pequeñas */
@@ -1515,6 +1508,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+
 
 
 
