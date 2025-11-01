@@ -351,6 +351,44 @@
 #errorBox {
   display: none;
 }
+    /* === Mensaje de confirmación (éxito/error) === */
+#successBox, #errorBox {
+  text-align: center;
+  margin-top: 20px;
+  padding: 30px 25px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid var(--olive);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  animation: fadeUp 0.8s ease-in-out;
+}
+
+/* Títulos de los cuadros */
+#successBox h3, #errorBox h3 {
+  font-family: 'Tangerine', cursive;
+  font-size: 44px;
+  color: var(--olive);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* Texto debajo */
+#successBox p, #errorBox p {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Error con tono diferente */
+#errorBox {
+  border-color: var(--garnet);
+}
+#errorBox h3 {
+  color: var(--garnet);
+}
+
 
 
   </style>
@@ -839,6 +877,7 @@
   </script>
 </body>
 </html>
+
 
 
 
