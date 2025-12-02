@@ -388,8 +388,21 @@
 #errorBox h3 {
   color: var(--garnet);
 }
+    .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease forwards;
+}
 
-
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
   </style>
 </head>
@@ -417,7 +430,7 @@
 
     <!-- Cuenta atrás -->
     <section class="countdown-section">
-      <div class="date-box">
+      <div class="date-box fade-in">
         <h2 class="join">Únete a nosotros el</h2>
         <span>17 · 10 · 2026</span>
       </div>
@@ -877,6 +890,7 @@
   </script>
 </body>
 </html>
+
 
 
 
